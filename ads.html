@@ -1,0 +1,2165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <title>Lexile Literacy Pro Master Reference & Complete Study Guide</title>
+  <style>
+    /* Reset & Base Typography */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    body { background-color: #f8fafc; color: #1e293b; line-height: 1.6; padding-bottom: 60px; -webkit-font-smoothing: antialiased; }
+    .container { max-width: 1080px; margin: 0 auto; padding: 20px 16px; }
+
+    /* Print Header & Controls */
+    .top-bar { background: #1e3a8a; color: white; padding: 24px 20px; border-radius: 12px; margin-bottom: 24px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+    .top-bar h1 { font-size: 26px; font-weight: 800; margin-bottom: 8px; }
+    .top-bar p { opacity: 0.9; font-size: 15px; margin-bottom: 16px; }
+    .actions-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 10px 18px; font-size: 14px; font-weight: 600; border-radius: 8px; border: none; cursor: pointer; text-decoration: none; transition: all 0.2s; }
+    .btn-primary { background: #3b82f6; color: white; }
+    .btn-primary:hover { background: #2563eb; }
+    .btn-white { background: white; color: #1e3a8a; }
+    .btn-white:hover { background: #f1f5f9; }
+    .btn-sm { padding: 6px 12px; font-size: 13px; background: #2563eb; color: white; }
+
+    /* Student Header for Printable A4 */
+    .student-header { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; background: white; border: 2px solid #cbd5e1; border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; font-size: 14px; }
+    .line-field { border-bottom: 1.5px dotted #94a3b8; min-height: 22px; display: inline-block; width: 65%; vertical-align: bottom; }
+
+    /* Section Styling */
+    .section-block { background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px 20px; margin-bottom: 28px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+    .section-title { font-size: 20px; font-weight: 700; color: #0f172a; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; }
+    .section-intro { font-size: 14px; color: #64748b; margin-bottom: 18px; }
+
+    /* Table Styles (Mobile responsive scroll wrapper) */
+    .table-container { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 16px; border: 1px solid #cbd5e1; border-radius: 8px; }
+    table { width: 100%; border-collapse: collapse; text-align: left; font-size: 13px; }
+    th { background: #f1f5f9; color: #334155; font-weight: 700; padding: 10px 12px; border-bottom: 2px solid #cbd5e1; }
+    td { padding: 10px 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+    tr:nth-child(even) { background-color: #f8fafc; }
+    .badge { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 9999px; background: #e2e8f0; color: #334155; }
+
+    /* Question Cards */
+    .question-card, .grammar-card, .passage-block { background: #fdfdfd; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 18px; margin-bottom: 18px; }
+    .question-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .q-number { font-size: 13px; font-weight: 700; color: #2563eb; background: #dbeafe; padding: 3px 8px; border-radius: 6px; }
+    .q-tag { font-size: 12px; color: #64748b; font-weight: 500; }
+    .passage-text { font-size: 15px; color: #1e293b; background: #f8fafc; border-left: 4px solid #3b82f6; padding: 10px 14px; border-radius: 4px; margin-bottom: 12px; line-height: 1.6; }
+    .prompt-text { font-size: 15px; font-weight: 600; color: #0f172a; margin-bottom: 12px; }
+    .options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 10px; }
+    .option-label { display: flex; align-items: center; gap: 8px; padding: 10px 14px; border: 1.5px solid #cbd5e1; border-radius: 8px; cursor: pointer; font-size: 14px; transition: all 0.15s; background: white; }
+    .option-label:hover { border-color: #3b82f6; background: #f0f7ff; }
+    .option-label input { accent-color: #2563eb; width: 18px; height: 18px; }
+
+    /* QAR Visual Cards */
+    .qar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 20px; }
+    .qar-card { border-radius: 10px; padding: 16px; border: 1.5px solid #cbd5e1; background: white; }
+    .qar-card.in-book { border-top: 5px solid #10b981; }
+    .qar-card.in-head { border-top: 5px solid #8b5cf6; }
+    .qar-pill { display: inline-block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 2px 8px; border-radius: 4px; margin-bottom: 8px; background: #f1f5f9; color: #475569; }
+    .qar-title { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: #0f172a; }
+    .qar-example { background: #f8fafc; border-left: 3px solid #cbd5e1; padding: 8px 12px; font-size: 13px; margin-top: 10px; }
+
+    /* Feedback & Alert */
+    .feedback-box { margin-top: 12px; padding: 10px 14px; border-radius: 8px; font-size: 14px; }
+    .feedback-correct { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
+    .feedback-incorrect { background: #fee2e2; color: #991b1b; border: 1px solid #fca5a5; }
+
+    /* Inputs */
+    .text-input { width: 100%; max-width: 400px; padding: 8px 12px; border: 1.5px solid #cbd5e1; border-radius: 6px; font-size: 14px; }
+    .fill-in-box { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+
+    /* Score Float Bar */
+    .score-banner { position: sticky; top: 12px; z-index: 50; background: #0f172a; color: white; padding: 10px 18px; border-radius: 9999px; display: inline-flex; align-items: center; gap: 14px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.2); font-size: 14px; font-weight: 600; margin-bottom: 18px; }
+
+    /* PRINT SPECIFIC STYLES FOR A4 */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 12mm 14mm;
+      }
+      body {
+        background: white !important;
+        color: black !important;
+        font-size: 12pt;
+        padding-bottom: 0;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .no-print, .actions-row, .btn, .score-banner, .feedback-box {
+        display: none !important;
+      }
+      .container {
+        max-width: 100% !important;
+        padding: 0 !important;
+      }
+      .top-bar {
+        background: white !important;
+        color: black !important;
+        border: 2px solid black;
+        padding: 10px !important;
+        box-shadow: none !important;
+        border-radius: 0;
+      }
+      .section-block {
+        box-shadow: none !important;
+        border: 1px solid #94a3b8 !important;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        margin-bottom: 16px !important;
+      }
+      .question-card, .grammar-card, .passage-block {
+        page-break-inside: avoid;
+        break-inside: avoid;
+        border: 1px solid #cbd5e1 !important;
+        background: white !important;
+      }
+      .page-break {
+        page-break-before: always;
+        break-before: page;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <h1>Lexile Literacy Pro Master Reference & Test</h1>
+    <p>Complete curriculum reference for reading comprehension, QAR strategy, vocabulary mastery, verb tenses, and A4 printable practice.</p>
+    <div class="actions-row no-print">
+      <button class="btn btn-white" onclick="window.print()">Print / Save as A4 PDF</button>
+      <button class="btn btn-primary" onclick="resetAll()">Reset Interactive Quizzes</button>
+      <span style="font-size:13px; margin-left:auto; opacity:0.9;">Works 100% Offline & on iOS / iPhone</span>
+    </div>
+  </div>
+
+  <!-- Student Exam Header -->
+  <div class="student-header">
+    <div><strong>Student Name:</strong> <span class="line-field"></span></div>
+    <div><strong>Grade / Class:</strong> <span class="line-field"></span></div>
+    <div><strong>Date:</strong> <span class="line-field"></span></div>
+    <div><strong>Total Score:</strong> <span class="line-field"></span></div>
+  </div>
+
+  <div class="score-banner no-print">
+    <span>Interactive Score: <strong id="score-display">0</strong> correct</span>
+    <span>Answered: <strong id="answered-display">0</strong></span>
+  </div>
+
+  <!-- SECTION 1: VOCABULARY REFERENCE TABLE -->
+  <div class="section-block">
+    <div class="section-title">
+      <span>Unit 1: Master Vocabulary Wordlist & Reference Table</span>
+    </div>
+    <p class="section-intro">
+      Study these essential words with definitions, easy context sentences, synonyms, and antonyms. This is your core reference bank.
+    </p>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Word</th>
+            <th>Part of Speech</th>
+            <th>Kid-Friendly Definition</th>
+            <th>Simple Example Sentence</th>
+            <th>Synonyms (Same)</th>
+            <th>Antonyms (Opposite)</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+    <tr>
+      <td class="font-bold text-blue-900">1. deserted</td>
+      <td><span class="badge">adjective / verb</span></td>
+      <td>Empty; left alone with no people living in or visiting it.</td>
+      <td class="italic text-slate-700">"The old stone cities in the valley are now quiet and deserted."</td>
+      <td class="text-emerald-700 font-medium">barren, abandoned, empty, unoccupied</td>
+      <td class="text-rose-700 font-medium">crowded, populated, busy, abundant</td>
+    </tr>
+  
+    <tr>
+      <td class="font-bold text-blue-900">2. amazing</td>
+      <td><span class="badge">adjective</span></td>
+      <td>Causing great surprise, wonder, or astonishment.</td>
+      <td class="italic text-slate-700">"The boy could fly and lift buildings, which was truly amazing!"</td>
+      <td class="text-emerald-700 font-medium">extraordinary, wonderful, incredible, astonishing</td>
+      <td class="text-rose-700 font-medium">ordinary, common, plain, unremarkable</td>
+    </tr>
+  
+    <tr>
+      <td class="font-bold text-blue-900">3. surprised</td>
+      <td><span class="badge">verb / adjective</span></td>
+      <td>Felt or showed wonder because something unexpected happened.</td>
+      <td class="italic text-slate-700">"Mrs. Simms surprised us by welcoming every student by name."</td>
+      <td class="text-emerald-700 font-medium">astonished, amazed, shocked, startled</td>
+      <td class="text-rose-700 font-medium">prepared, expectant, unmoved</td>
+    </tr>
+  
+    <tr>
+      <td class="font-bold text-blue-900">4. need</td>
+      <td><span class="badge">verb</span></td>
+      <td>To require something because it is necessary or essential.</td>
+      <td class="italic text-slate-700">"The king’s men need to find the lost prince before time runs out."</td>
+      <td class="text-emerald-700 font-medium">require, demand, seek</td>
+      <td class="text-rose-700 font-medium">have, refuse, dislike</td>
+    </tr>
+  
+    <tr>
+      <td class="font-bold text-blue-900">5. swim</td>
+      <td><span class="badge">verb</span></td>
+      <td>To move through water by moving one’s arms and legs.</td>
+      <td class="italic text-slate-700">"Choi carried her beach bag because she planned to swim at the pool."</td>
+      <td class="text-emerald-700 font-medium">paddle, bathe, float</td>
+      <td class="text-rose-700 font-medium">sink, drown</td>
+    </tr>
+  
+    <tr>
+      <td class="font-bold text-blue-900">6. guess</td>
+      <td><span class="badge">verb / noun</span></td>
+      <td>To form an opinion or give an answer when you do not know for sure.</td>
+      <td class="italic text-slate-700">"Can you guess how many marbles are inside the glass jar?"</td>
+      <td class="text-emerald-700 font-medium">hypothesis, estimate, predict, conjecture</td>
+      <td class="text-rose-700 font-medium">know, fact, certainty, proof</td>
+    </tr>
+  
+    <tr>
+      <td class="font-bold text-blue-900">7. shy</td>
+      <td><span class="badge">adjective</span></td>
+      <td>Feeling nervous and uncomfortable about meeting or talking to people.</td>
+      <td class="italic text-slate-700">"The shy puppy hid quietly behind the warm couch."</td>
+      <td class="text-emerald-700 font-medium">timid, bashful, reserved, modest</td>
+      <td class="text-rose-700 font-medium">courageous, bold, aggressive, outgoing</td>
+    </tr>
+  
+    <tr>
+      <td class="font-bold text-blue-900">8. trick</td>
+      <td><span class="badge">noun / verb</span></td>
+      <td>An action that is meant to deceive someone or entertain them.</td>
+      <td class="italic text-slate-700">"The magician performed a clever card trick for the children."</td>
+      <td class="text-emerald-700 font-medium">deception, prank, illusion, stunt</td>
+      <td class="text-rose-700 font-medium">honesty, truth, fairness, directness</td>
+    </tr>
+  
+    <tr>
+      <td class="font-bold text-blue-900">9. dismissed</td>
+      <td><span class="badge">verb</span></td>
+      <td>To send away; to allow or cause someone to leave.</td>
+      <td class="italic text-slate-700">"The teacher dismissed the class when the afternoon bell rang."</td>
+      <td class="text-emerald-700 font-medium">released, sent away, discharged, removed</td>
+      <td class="text-rose-700 font-medium">gathered, retained, called, kept</td>
+    </tr>
+  
+    <tr>
+      <td class="font-bold text-blue-900">10. silent</td>
+      <td><span class="badge">adjective</span></td>
+      <td>Not having or making any sound; completely quiet.</td>
+      <td class="italic text-slate-700">"The library was so silent that you could hear a pin drop."</td>
+      <td class="text-emerald-700 font-medium">quiet, soundless, restrained, still</td>
+      <td class="text-rose-700 font-medium">clamorous, noisy, loud, talkative</td>
+    </tr>
+  
+    <tr>
+      <td class="font-bold text-blue-900">11. clever</td>
+      <td><span class="badge">adjective</span></td>
+      <td>Intelligent, sharp-minded, and able to learn things quickly.</td>
+      <td class="italic text-slate-700">"The clever student solved the math puzzle in five seconds."</td>
+      <td class="text-emerald-700 font-medium">capable, smart, intelligent, sharp</td>
+      <td class="text-rose-700 font-medium">foolish, naive, awkward, dull</td>
+    </tr>
+  
+    <tr>
+      <td class="font-bold text-blue-900">12. vigorous</td>
+      <td><span class="badge">adjective</span></td>
+      <td>Done with great force, strength, and lively energy.</td>
+      <td class="italic text-slate-700">"A vigorous morning exercise gives you energy for the entire day."</td>
+      <td class="text-emerald-700 font-medium">dynamic, energetic, forceful, spirited</td>
+      <td class="text-rose-700 font-medium">apathetic, weak, sluggish, helpless</td>
+    </tr>
+  
+    <tr>
+      <td class="font-bold text-blue-900">13. foreign</td>
+      <td><span class="badge">adjective</span></td>
+      <td>Coming from or belonging to a different country or unfamiliar place.</td>
+      <td class="italic text-slate-700">"He loved learning to cook food from foreign countries."</td>
+      <td class="text-emerald-700 font-medium">alien, distant, unfamiliar, exotic</td>
+      <td class="text-rose-700 font-medium">native, local, familiar, domestic</td>
+    </tr>
+  
+    <tr>
+      <td class="font-bold text-blue-900">14. secretly</td>
+      <td><span class="badge">adverb</span></td>
+      <td>In a quiet way that is kept hidden and not known by others.</td>
+      <td class="italic text-slate-700">"They secretly prepared a surprise party for their mother."</td>
+      <td class="text-emerald-700 font-medium">privately, covertly, stealthily</td>
+      <td class="text-rose-700 font-medium">openly, publicly, plainly</td>
+    </tr>
+  
+    <tr>
+      <td class="font-bold text-blue-900">15. complicated</td>
+      <td><span class="badge">adjective</span></td>
+      <td>Difficult to analyze, understand, or explain; having many parts.</td>
+      <td class="italic text-slate-700">"Building a rocket is a complicated task with many steps."</td>
+      <td class="text-emerald-700 font-medium">arduous, intricate, complex, difficult</td>
+      <td class="text-rose-700 font-medium">simple, plain, easy, straightforward</td>
+    </tr>
+  
+    <tr>
+      <td class="font-bold text-blue-900">16. proud</td>
+      <td><span class="badge">adjective</span></td>
+      <td>Very happy and pleased because of something you or someone did.</td>
+      <td class="italic text-slate-700">"The parents felt proud when their son won the spelling bee."</td>
+      <td class="text-emerald-700 font-medium">pleased, honored, gratified, content</td>
+      <td class="text-rose-700 font-medium">ashamed, embarrassed, humiliated, modest</td>
+    </tr>
+  
+    <tr>
+      <td class="font-bold text-blue-900">17. chases</td>
+      <td><span class="badge">verb</span></td>
+      <td>The act of following and trying to catch a person, animal, or object.</td>
+      <td class="italic text-slate-700">"The friendly dog chases after the yellow tennis ball in the yard."</td>
+      <td class="text-emerald-700 font-medium">pursues, follows, hunts</td>
+      <td class="text-rose-700 font-medium">flees, escapes, retreats</td>
+    </tr>
+  
+    <tr>
+      <td class="font-bold text-blue-900">18. trip</td>
+      <td><span class="badge">noun</span></td>
+      <td>A journey or voyage to a place, often for pleasure or purpose.</td>
+      <td class="italic text-slate-700">"Eugene packed his bags for the long train trip to New York."</td>
+      <td class="text-emerald-700 font-medium">journey, voyage, travel, excursion</td>
+      <td class="text-rose-700 font-medium">stay, residence, inactivity</td>
+    </tr>
+  
+    <tr>
+      <td class="font-bold text-blue-900">19. catch</td>
+      <td><span class="badge">verb / noun</span></td>
+      <td>To capture or seize; or a hidden problem that makes something difficult.</td>
+      <td class="italic text-slate-700">"The offer sounded great, but there was a tricky catch in the contract."</td>
+      <td class="text-emerald-700 font-medium">snare, trap, snatch, capture</td>
+      <td class="text-rose-700 font-medium">release, drop, lose</td>
+    </tr>
+  
+    <tr>
+      <td class="font-bold text-blue-900">20. together</td>
+      <td><span class="badge">adverb</span></td>
+      <td>With each other; in one group or joint effort.</td>
+      <td class="italic text-slate-700">"The five brave sailors navigated across the ocean together."</td>
+      <td class="text-emerald-700 font-medium">collectively, jointly, unitedly, in unison</td>
+      <td class="text-rose-700 font-medium">alone, separately, individually, apart</td>
+    </tr>
+  
+    <tr>
+      <td class="font-bold text-blue-900">21. skills</td>
+      <td><span class="badge">noun (plural)</span></td>
+      <td>Abilities that come from knowledge, practice, or talent.</td>
+      <td class="italic text-slate-700">"Practicing daily will help improve your reading and writing skills."</td>
+      <td class="text-emerald-700 font-medium">talents, abilities, proficiencies, strengths</td>
+      <td class="text-rose-700 font-medium">inabilities, weaknesses, clumsiness</td>
+    </tr>
+  
+    <tr>
+      <td class="font-bold text-blue-900">22. satisfied</td>
+      <td><span class="badge">adjective</span></td>
+      <td>Pleased, content, or happy that what was needed has been fulfilled.</td>
+      <td class="italic text-slate-700">"The thirsty traveler was satisfied after drinking cold water."</td>
+      <td class="text-emerald-700 font-medium">content, pleased, gratified</td>
+      <td class="text-rose-700 font-medium">discontent, unhappy, dissatisfied</td>
+    </tr>
+  
+    <tr>
+      <td class="font-bold text-blue-900">23. delicate</td>
+      <td><span class="badge">adjective</span></td>
+      <td>Easily broken or damaged; requiring careful, gentle handling.</td>
+      <td class="italic text-slate-700">"Handle the antique glass vase gently because it is very delicate."</td>
+      <td class="text-emerald-700 font-medium">fragile, dainty, sensitive, tender</td>
+      <td class="text-rose-700 font-medium">sturdy, tough, strong, coarse</td>
+    </tr>
+  
+    <tr>
+      <td class="font-bold text-blue-900">24. currents</td>
+      <td><span class="badge">noun (plural)</span></td>
+      <td>Flows of water, air, or electricity moving in a definite direction.</td>
+      <td class="italic text-slate-700">"The strong river currents carried the wooden raft down the valley."</td>
+      <td class="text-emerald-700 font-medium">streams, tides, flows, surges</td>
+      <td class="text-rose-700 font-medium">stillness, calm, stagnancy</td>
+    </tr>
+  
+    <tr>
+      <td class="font-bold text-blue-900">25. fertile</td>
+      <td><span class="badge">adjective</span></td>
+      <td>Producing or capable of producing abundant vegetation or crops.</td>
+      <td class="italic text-slate-700">"The fertile soil near the Nile River grew tall, healthy wheat."</td>
+      <td class="text-emerald-700 font-medium">productive, fruitful, rich, abundant</td>
+      <td class="text-rose-700 font-medium">barren, deserted, sterile, infertile</td>
+    </tr>
+  
+    <tr>
+      <td class="font-bold text-blue-900">26. snatched</td>
+      <td><span class="badge">verb (past tense)</span></td>
+      <td>Quickly took or grasped something suddenly with a quick motion.</td>
+      <td class="italic text-slate-700">"Pedro grabbed his mom’s hand tightly as the airplane left the ground."</td>
+      <td class="text-emerald-700 font-medium">grabbed, seized, clutched, grasped</td>
+      <td class="text-rose-700 font-medium">released, dropped, let go</td>
+    </tr>
+  
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 2: LEXILE CLOZE PRACTICE -->
+  <div class="section-block page-break">
+    <div class="section-title">
+      <span>Unit 2: Lexile Cloze Reading & Context Clues Practice</span>
+    </div>
+    <p class="section-intro">
+      Read each short passage carefully. Look for context clues in the surrounding sentences to choose the best word to complete the thought.
+    </p>
+    
+    <div class="question-card" id="lex-card-lex-1">
+      <div class="question-header">
+        <span class="q-number">Question 1</span>
+        <span class="q-tag">Ancient Civilizations / Lexile Cloze</span>
+      </div>
+      <p class="passage-text">"Some of the first cities were in the Indus Valley in South Asia. These ancient brick and stone cities are now empty. We know a little bit about the people who once lived in them. We know that they farmed. They baked bread. They made toys. But we do not know why they disappeared. They left behind writings. But no one has been able to understand them."</p>
+      <p class="prompt-text"><strong>Prompt:</strong> The cities have been ________.</p>
+      <div class="options-grid">
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-1" value="repaired" onchange="checkAnswer('lex-1', 'repaired', 'deserted', 'The text states that these ancient cities are &quot;now empty&quot; and that the people who lived in them &quot;disappeared.&quot; The word &quot;deserted&quot; means abandoned or empty.')">
+            <span>repaired</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-1" value="closed" onchange="checkAnswer('lex-1', 'closed', 'deserted', 'The text states that these ancient cities are &quot;now empty&quot; and that the people who lived in them &quot;disappeared.&quot; The word &quot;deserted&quot; means abandoned or empty.')">
+            <span>closed</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-1" value="moved" onchange="checkAnswer('lex-1', 'moved', 'deserted', 'The text states that these ancient cities are &quot;now empty&quot; and that the people who lived in them &quot;disappeared.&quot; The word &quot;deserted&quot; means abandoned or empty.')">
+            <span>moved</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-1" value="deserted" onchange="checkAnswer('lex-1', 'deserted', 'deserted', 'The text states that these ancient cities are &quot;now empty&quot; and that the people who lived in them &quot;disappeared.&quot; The word &quot;deserted&quot; means abandoned or empty.')">
+            <span>deserted</span>
+          </label>
+        
+      </div>
+      <div class="feedback-box" id="feedback-lex-1" style="display:none;"></div>
+    </div>
+  
+    <div class="question-card" id="lex-card-lex-2">
+      <div class="question-header">
+        <span class="q-number">Question 2</span>
+        <span class="q-tag">Fantasy / Character Traits</span>
+      </div>
+      <p class="passage-text">"On a planet far from Earth lived a very special boy. He could fly. He could lift big buildings with his teeth. He could even stand on his nose."</p>
+      <p class="prompt-text"><strong>Prompt:</strong> He was ________.</p>
+      <div class="options-grid">
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-2" value="shy" onchange="checkAnswer('lex-2', 'shy', 'amazing', 'Lifting huge buildings with teeth and flying into the sky are extraordinary superhuman feats, proving he was amazing.')">
+            <span>shy</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-2" value="thin" onchange="checkAnswer('lex-2', 'thin', 'amazing', 'Lifting huge buildings with teeth and flying into the sky are extraordinary superhuman feats, proving he was amazing.')">
+            <span>thin</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-2" value="smart" onchange="checkAnswer('lex-2', 'smart', 'amazing', 'Lifting huge buildings with teeth and flying into the sky are extraordinary superhuman feats, proving he was amazing.')">
+            <span>smart</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-2" value="amazing" onchange="checkAnswer('lex-2', 'amazing', 'amazing', 'Lifting huge buildings with teeth and flying into the sky are extraordinary superhuman feats, proving he was amazing.')">
+            <span>amazing</span>
+          </label>
+        
+      </div>
+      <div class="feedback-box" id="feedback-lex-2" style="display:none;"></div>
+    </div>
+  
+    <div class="question-card" id="lex-card-lex-3">
+      <div class="question-header">
+        <span class="q-number">Question 3</span>
+        <span class="q-tag">School Life / Inference</span>
+      </div>
+      <p class="passage-text">"Our new teacher, Mrs. Simms, was standing there saying it to each of us as we entered the classroom: "Welcome, Rodrigo . . ." "Welcome, Heather . . ." "Welcome, Mai . . ." Amazing! How did she know our names already? She shook each student's hand."</p>
+      <p class="prompt-text"><strong>Prompt:</strong> Mrs. Simms ________ us.</p>
+      <div class="options-grid">
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-3" value="seated" onchange="checkAnswer('lex-3', 'seated', 'surprised', 'The narrator exclaims &quot;Amazing! How did she know our names already?&quot; showing unexpected shock and pleasant surprise.')">
+            <span>seated</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-3" value="surprised" onchange="checkAnswer('lex-3', 'surprised', 'surprised', 'The narrator exclaims &quot;Amazing! How did she know our names already?&quot; showing unexpected shock and pleasant surprise.')">
+            <span>surprised</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-3" value="dismissed" onchange="checkAnswer('lex-3', 'dismissed', 'surprised', 'The narrator exclaims &quot;Amazing! How did she know our names already?&quot; showing unexpected shock and pleasant surprise.')">
+            <span>dismissed</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-3" value="prepared" onchange="checkAnswer('lex-3', 'prepared', 'surprised', 'The narrator exclaims &quot;Amazing! How did she know our names already?&quot; showing unexpected shock and pleasant surprise.')">
+            <span>prepared</span>
+          </label>
+        
+      </div>
+      <div class="feedback-box" id="feedback-lex-3" style="display:none;"></div>
+    </div>
+  
+    <div class="question-card" id="lex-card-lex-4">
+      <div class="question-header">
+        <span class="q-number">Question 4</span>
+        <span class="q-tag">Adventure / Context Clues</span>
+      </div>
+      <p class="passage-text">""I heard every word you said. The king's son ran away. That world will not have a king if he is not found. So the king's men have come to New City to find him.""</p>
+      <p class="prompt-text"><strong>Prompt:</strong> They ________ the king's son.</p>
+      <div class="options-grid">
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-4" value="need" onchange="checkAnswer('lex-4', 'need', 'need', 'The passage says that without him, &quot;that world will not have a king,&quot; proving they urgently require and need him.')">
+            <span>need</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-4" value="train" onchange="checkAnswer('lex-4', 'train', 'need', 'The passage says that without him, &quot;that world will not have a king,&quot; proving they urgently require and need him.')">
+            <span>train</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-4" value="ask" onchange="checkAnswer('lex-4', 'ask', 'need', 'The passage says that without him, &quot;that world will not have a king,&quot; proving they urgently require and need him.')">
+            <span>ask</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-4" value="trick" onchange="checkAnswer('lex-4', 'trick', 'need', 'The passage says that without him, &quot;that world will not have a king,&quot; proving they urgently require and need him.')">
+            <span>trick</span>
+          </label>
+        
+      </div>
+      <div class="feedback-box" id="feedback-lex-4" style="display:none;"></div>
+    </div>
+  
+    <div class="question-card" id="lex-card-lex-5">
+      <div class="question-header">
+        <span class="q-number">Question 5</span>
+        <span class="q-tag">Daily Activities / Inference</span>
+      </div>
+      <p class="passage-text">"The front door opened. Choi came out of the house, carrying an oversize beach bag. "Have fun at the pool," Choi's mom called. "Thanks, I will," Choi replied. Then she headed down the sidewalk."</p>
+      <p class="prompt-text"><strong>Prompt:</strong> Choi planned to ________.</p>
+      <div class="options-grid">
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-5" value="wait" onchange="checkAnswer('lex-5', 'wait', 'swim', 'Carrying a beach bag and being told to &quot;have fun at the pool&quot; directly points to swimming.')">
+            <span>wait</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-5" value="guess" onchange="checkAnswer('lex-5', 'guess', 'swim', 'Carrying a beach bag and being told to &quot;have fun at the pool&quot; directly points to swimming.')">
+            <span>guess</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-5" value="swim" onchange="checkAnswer('lex-5', 'swim', 'swim', 'Carrying a beach bag and being told to &quot;have fun at the pool&quot; directly points to swimming.')">
+            <span>swim</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-5" value="draw" onchange="checkAnswer('lex-5', 'draw', 'swim', 'Carrying a beach bag and being told to &quot;have fun at the pool&quot; directly points to swimming.')">
+            <span>draw</span>
+          </label>
+        
+      </div>
+      <div class="feedback-box" id="feedback-lex-5" style="display:none;"></div>
+    </div>
+  
+    <div class="question-card" id="lex-card-lex-6">
+      <div class="question-header">
+        <span class="q-number">Question 6</span>
+        <span class="q-tag">Descriptive Setting</span>
+      </div>
+      <p class="passage-text">"His polished shoes on the dark wine and green of the carpeting made no sound. In fact, nothing in the suite made any sound. The absence of noise was complete. No machinery hummed, no appliances clicked, no footsteps rang."</p>
+      <p class="prompt-text"><strong>Prompt:</strong> It was absolutely ________.</p>
+      <div class="options-grid">
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-6" value="silent" onchange="checkAnswer('lex-6', 'silent', 'silent', '&quot;The absence of noise was complete&quot; and &quot;made no sound&quot; are the exact definitions of silent.')">
+            <span>silent</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-6" value="wild" onchange="checkAnswer('lex-6', 'wild', 'silent', '&quot;The absence of noise was complete&quot; and &quot;made no sound&quot; are the exact definitions of silent.')">
+            <span>wild</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-6" value="busy" onchange="checkAnswer('lex-6', 'busy', 'silent', '&quot;The absence of noise was complete&quot; and &quot;made no sound&quot; are the exact definitions of silent.')">
+            <span>busy</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-6" value="cold" onchange="checkAnswer('lex-6', 'cold', 'silent', '&quot;The absence of noise was complete&quot; and &quot;made no sound&quot; are the exact definitions of silent.')">
+            <span>cold</span>
+          </label>
+        
+      </div>
+      <div class="feedback-box" id="feedback-lex-6" style="display:none;"></div>
+    </div>
+  
+    <div class="question-card" id="lex-card-lex-7">
+      <div class="question-header">
+        <span class="q-number">Question 7</span>
+        <span class="q-tag">Nature / Animals</span>
+      </div>
+      <p class="passage-text">"He went up, up, up. His circles were wider as he drifted south over the open meadowland of our farm. So high that he was only a dark speck with wings. The clouds above him were orange now. Like when Mama poured peach juice on the large curds of white potcheese. At the western-most turn of his circle, I almost lost him in the sundown."</p>
+      <p class="prompt-text"><strong>Prompt:</strong> He was ________.</p>
+      <div class="options-grid">
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-7" value="dreaming" onchange="checkAnswer('lex-7', 'dreaming', 'flying', 'Drifting high in circles above the farm, appearing as a dark speck with wings against the clouds, describes flying.')">
+            <span>dreaming</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-7" value="eating" onchange="checkAnswer('lex-7', 'eating', 'flying', 'Drifting high in circles above the farm, appearing as a dark speck with wings against the clouds, describes flying.')">
+            <span>eating</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-7" value="flying" onchange="checkAnswer('lex-7', 'flying', 'flying', 'Drifting high in circles above the farm, appearing as a dark speck with wings against the clouds, describes flying.')">
+            <span>flying</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-7" value="swimming" onchange="checkAnswer('lex-7', 'swimming', 'flying', 'Drifting high in circles above the farm, appearing as a dark speck with wings against the clouds, describes flying.')">
+            <span>swimming</span>
+          </label>
+        
+      </div>
+      <div class="feedback-box" id="feedback-lex-7" style="display:none;"></div>
+    </div>
+  
+    <div class="question-card" id="lex-card-lex-8">
+      <div class="question-header">
+        <span class="q-number">Question 8</span>
+        <span class="q-tag">Weather & Seasons</span>
+      </div>
+      <p class="passage-text">"Mark folded his jacket collar up around his neck. The late-September morning was chilly, the wind biting. Mark knew it would warm up later, with a hot and sunny afternoon. Most days were still warm, but it was definitely getting dark earlier. And the nippy mornings and evenings of the past week promised an early winter."</p>
+      <p class="prompt-text"><strong>Prompt:</strong> He was ________.</p>
+      <div class="options-grid">
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-8" value="lonely" onchange="checkAnswer('lex-8', 'lonely', 'cold', 'Folding his jacket collar against the &quot;chilly&quot; and &quot;biting&quot; morning wind indicates he felt cold.')">
+            <span>lonely</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-8" value="handsome" onchange="checkAnswer('lex-8', 'handsome', 'cold', 'Folding his jacket collar against the &quot;chilly&quot; and &quot;biting&quot; morning wind indicates he felt cold.')">
+            <span>handsome</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-8" value="funny" onchange="checkAnswer('lex-8', 'funny', 'cold', 'Folding his jacket collar against the &quot;chilly&quot; and &quot;biting&quot; morning wind indicates he felt cold.')">
+            <span>funny</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-8" value="cold" onchange="checkAnswer('lex-8', 'cold', 'cold', 'Folding his jacket collar against the &quot;chilly&quot; and &quot;biting&quot; morning wind indicates he felt cold.')">
+            <span>cold</span>
+          </label>
+        
+      </div>
+      <div class="feedback-box" id="feedback-lex-8" style="display:none;"></div>
+    </div>
+  
+    <div class="question-card" id="lex-card-lex-9">
+      <div class="question-header">
+        <span class="q-number">Question 9</span>
+        <span class="q-tag">Grammar & Linguistics</span>
+      </div>
+      <p class="passage-text">"A compound noun is made up of two or more words. Some compounds are written as separate words, some are hyphenated, and some are written as one word. Check your dictionary when you are not sure how to write a compound noun."</p>
+      <p class="prompt-text"><strong>Prompt:</strong> Compound words can be written ________.</p>
+      <div class="options-grid">
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-9" value="secretly" onchange="checkAnswer('lex-9', 'secretly', 'differently', 'The text lists three distinct ways: separate, hyphenated, and one word—meaning they are written in different formats.')">
+            <span>secretly</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-9" value="differently" onchange="checkAnswer('lex-9', 'differently', 'differently', 'The text lists three distinct ways: separate, hyphenated, and one word—meaning they are written in different formats.')">
+            <span>differently</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-9" value="quickly" onchange="checkAnswer('lex-9', 'quickly', 'differently', 'The text lists three distinct ways: separate, hyphenated, and one word—meaning they are written in different formats.')">
+            <span>quickly</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-9" value="cleverly" onchange="checkAnswer('lex-9', 'cleverly', 'differently', 'The text lists three distinct ways: separate, hyphenated, and one word—meaning they are written in different formats.')">
+            <span>cleverly</span>
+          </label>
+        
+      </div>
+      <div class="feedback-box" id="feedback-lex-9" style="display:none;"></div>
+    </div>
+  
+    <div class="question-card" id="lex-card-lex-10">
+      <div class="question-header">
+        <span class="q-number">Question 10</span>
+        <span class="q-tag">Sports & Rules</span>
+      </div>
+      <p class="passage-text">"For demolition-derby racing, the rules are simple. Drivers must crash into another vehicle at least once every minute. Crashing head-on is not allowed, and drivers cannot smash into the driver's side door. Drivers are not allowed to drive in a wild and uncontrolled way. Vehicles cannot leave the boundary area."</p>
+      <p class="prompt-text"><strong>Prompt:</strong> The rules are ________.</p>
+      <div class="options-grid">
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-10" value="complicated" onchange="checkAnswer('lex-10', 'complicated', 'specific', 'The rules detail exact minute intervals, exact prohibited collision zones, and strict boundaries, making them very specific.')">
+            <span>complicated</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-10" value="vigorous" onchange="checkAnswer('lex-10', 'vigorous', 'specific', 'The rules detail exact minute intervals, exact prohibited collision zones, and strict boundaries, making them very specific.')">
+            <span>vigorous</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-10" value="foreign" onchange="checkAnswer('lex-10', 'foreign', 'specific', 'The rules detail exact minute intervals, exact prohibited collision zones, and strict boundaries, making them very specific.')">
+            <span>foreign</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-10" value="specific" onchange="checkAnswer('lex-10', 'specific', 'specific', 'The rules detail exact minute intervals, exact prohibited collision zones, and strict boundaries, making them very specific.')">
+            <span>specific</span>
+          </label>
+        
+      </div>
+      <div class="feedback-box" id="feedback-lex-10" style="display:none;"></div>
+    </div>
+  
+    <div class="question-card" id="lex-card-lex-11">
+      <div class="question-header">
+        <span class="q-number">Question 11</span>
+        <span class="q-tag">Emotions / Music</span>
+      </div>
+      <p class="passage-text">"Later that night, Adam lay awake in bed. He had called Mr Peters. He said he would play the Aaron Copland piece. Adam didn't feel good about the concert, though. He felt very nervous."</p>
+      <p class="prompt-text"><strong>Prompt:</strong> Adam was ________ about the concert.</p>
+      <div class="options-grid">
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-11" value="mad" onchange="checkAnswer('lex-11', 'mad', 'worried', 'Lying awake in bed, not feeling good, and feeling &quot;very nervous&quot; are classic signs of feeling worried.')">
+            <span>mad</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-11" value="happy" onchange="checkAnswer('lex-11', 'happy', 'worried', 'Lying awake in bed, not feeling good, and feeling &quot;very nervous&quot; are classic signs of feeling worried.')">
+            <span>happy</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-11" value="proud" onchange="checkAnswer('lex-11', 'proud', 'worried', 'Lying awake in bed, not feeling good, and feeling &quot;very nervous&quot; are classic signs of feeling worried.')">
+            <span>proud</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-11" value="worried" onchange="checkAnswer('lex-11', 'worried', 'worried', 'Lying awake in bed, not feeling good, and feeling &quot;very nervous&quot; are classic signs of feeling worried.')">
+            <span>worried</span>
+          </label>
+        
+      </div>
+      <div class="feedback-box" id="feedback-lex-11" style="display:none;"></div>
+    </div>
+  
+    <div class="question-card" id="lex-card-lex-12">
+      <div class="question-header">
+        <span class="q-number">Question 12</span>
+        <span class="q-tag">Kindness & Cooperation</span>
+      </div>
+      <p class="passage-text">"Mark and Mandy hurry back to the park. Mark carries Mandy's suitcase."</p>
+      <p class="prompt-text"><strong>Prompt:</strong> Mark ________ Mandy.</p>
+      <div class="options-grid">
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-12" value="chases" onchange="checkAnswer('lex-12', 'chases', 'helps', 'Carrying someone else’s heavy suitcase is an act of helping them.')">
+            <span>chases</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-12" value="helps" onchange="checkAnswer('lex-12', 'helps', 'helps', 'Carrying someone else’s heavy suitcase is an act of helping them.')">
+            <span>helps</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-12" value="calls" onchange="checkAnswer('lex-12', 'calls', 'helps', 'Carrying someone else’s heavy suitcase is an act of helping them.')">
+            <span>calls</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-12" value="feeds" onchange="checkAnswer('lex-12', 'feeds', 'helps', 'Carrying someone else’s heavy suitcase is an act of helping them.')">
+            <span>feeds</span>
+          </label>
+        
+      </div>
+      <div class="feedback-box" id="feedback-lex-12" style="display:none;"></div>
+    </div>
+  
+    <div class="question-card" id="lex-card-lex-13">
+      <div class="question-header">
+        <span class="q-number">Question 13</span>
+        <span class="q-tag">History & Exploration</span>
+      </div>
+      <p class="passage-text">"He could not cross the Pacific alone. He needed five strong men to help. Thor found four of them in Norway. Their names were Knut, Erik, Torstein and Herman. The other man, Bengt, came from Sweden."</p>
+      <p class="prompt-text"><strong>Prompt:</strong> They would go ________.</p>
+      <div class="options-grid">
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-13" value="quickly" onchange="checkAnswer('lex-13', 'quickly', 'together', 'Because Thor could not go alone, he assembled five men so they could embark on the journey together as a crew.')">
+            <span>quickly</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-13" value="outside" onchange="checkAnswer('lex-13', 'outside', 'together', 'Because Thor could not go alone, he assembled five men so they could embark on the journey together as a crew.')">
+            <span>outside</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-13" value="together" onchange="checkAnswer('lex-13', 'together', 'together', 'Because Thor could not go alone, he assembled five men so they could embark on the journey together as a crew.')">
+            <span>together</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-13" value="hungry" onchange="checkAnswer('lex-13', 'hungry', 'together', 'Because Thor could not go alone, he assembled five men so they could embark on the journey together as a crew.')">
+            <span>hungry</span>
+          </label>
+        
+      </div>
+      <div class="feedback-box" id="feedback-lex-13" style="display:none;"></div>
+    </div>
+  
+    <div class="question-card" id="lex-card-lex-14">
+      <div class="question-header">
+        <span class="q-number">Question 14</span>
+        <span class="q-tag">Pets & Animals</span>
+      </div>
+      <p class="passage-text">"Ryan searched through the leaves trying to find Brutus. "Just you wait, Cassie. Brutus will be as big as Duke. Maybe even bigger. I just have to feed him more hamburger.""</p>
+      <p class="prompt-text"><strong>Prompt:</strong> Ryan wants Brutus to ________.</p>
+      <div class="options-grid">
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-14" value="catch" onchange="checkAnswer('lex-14', 'catch', 'grow', 'Feeding him more food so he will become &quot;as big as Duke, maybe even bigger&quot; means Ryan wants him to grow.')">
+            <span>catch</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-14" value="grow" onchange="checkAnswer('lex-14', 'grow', 'grow', 'Feeding him more food so he will become &quot;as big as Duke, maybe even bigger&quot; means Ryan wants him to grow.')">
+            <span>grow</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-14" value="know" onchange="checkAnswer('lex-14', 'know', 'grow', 'Feeding him more food so he will become &quot;as big as Duke, maybe even bigger&quot; means Ryan wants him to grow.')">
+            <span>know</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-14" value="talk" onchange="checkAnswer('lex-14', 'talk', 'grow', 'Feeding him more food so he will become &quot;as big as Duke, maybe even bigger&quot; means Ryan wants him to grow.')">
+            <span>talk</span>
+          </label>
+        
+      </div>
+      <div class="feedback-box" id="feedback-lex-14" style="display:none;"></div>
+    </div>
+  
+    <div class="question-card" id="lex-card-lex-15">
+      <div class="question-header">
+        <span class="q-number">Question 15</span>
+        <span class="q-tag">Travel & Journeys</span>
+      </div>
+      <p class="passage-text">"Eugene thought about what was ahead. There would be a long wait in Boston. Then another train to New York. Eugene leaned back in his seat. He listened to the train grind its way down the tracks."</p>
+      <p class="prompt-text"><strong>Prompt:</strong> Eugene's ________ will take a long time.</p>
+      <div class="options-grid">
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-15" value="party" onchange="checkAnswer('lex-15', 'party', 'trip', 'Waiting in Boston and riding train connections down the track describes a travel journey or trip.')">
+            <span>party</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-15" value="work" onchange="checkAnswer('lex-15', 'work', 'trip', 'Waiting in Boston and riding train connections down the track describes a travel journey or trip.')">
+            <span>work</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-15" value="story" onchange="checkAnswer('lex-15', 'story', 'trip', 'Waiting in Boston and riding train connections down the track describes a travel journey or trip.')">
+            <span>story</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-15" value="trip" onchange="checkAnswer('lex-15', 'trip', 'trip', 'Waiting in Boston and riding train connections down the track describes a travel journey or trip.')">
+            <span>trip</span>
+          </label>
+        
+      </div>
+      <div class="feedback-box" id="feedback-lex-15" style="display:none;"></div>
+    </div>
+  
+    <div class="question-card" id="lex-card-lex-16">
+      <div class="question-header">
+        <span class="q-number">Question 16</span>
+        <span class="q-tag">Descriptive Vocabulary</span>
+      </div>
+      <p class="passage-text">"Salma placed the fragile glass vase into the center of the wooden table. "Be careful not to bump the table," her father warned. "A light push could knock it to the floor and shatter it into pieces.""</p>
+      <p class="prompt-text"><strong>Prompt:</strong> The glass vase is ________.</p>
+      <div class="options-grid">
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-16" value="delicate" onchange="checkAnswer('lex-16', 'delicate', 'delicate', 'Something that shatters easily with a light bump is delicate and fragile.')">
+            <span>delicate</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-16" value="vigorous" onchange="checkAnswer('lex-16', 'vigorous', 'delicate', 'Something that shatters easily with a light bump is delicate and fragile.')">
+            <span>vigorous</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-16" value="satisfied" onchange="checkAnswer('lex-16', 'satisfied', 'delicate', 'Something that shatters easily with a light bump is delicate and fragile.')">
+            <span>satisfied</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-16" value="deserted" onchange="checkAnswer('lex-16', 'deserted', 'delicate', 'Something that shatters easily with a light bump is delicate and fragile.')">
+            <span>deserted</span>
+          </label>
+        
+      </div>
+      <div class="feedback-box" id="feedback-lex-16" style="display:none;"></div>
+    </div>
+  
+    <div class="question-card" id="lex-card-lex-17">
+      <div class="question-header">
+        <span class="q-number">Question 17</span>
+        <span class="q-tag">School & Achievement</span>
+      </div>
+      <p class="passage-text">"Tariq spent three hours studying his math formulas and finished all twenty practice questions without making any mistakes. He smiled warmly as he closed his notebook."</p>
+      <p class="prompt-text"><strong>Prompt:</strong> Tariq felt ________ with his hard work.</p>
+      <div class="options-grid">
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-17" value="shy" onchange="checkAnswer('lex-17', 'shy', 'satisfied', 'Completing all problems correctly and smiling happily shows he felt satisfied with his effort.')">
+            <span>shy</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-17" value="afraid" onchange="checkAnswer('lex-17', 'afraid', 'satisfied', 'Completing all problems correctly and smiling happily shows he felt satisfied with his effort.')">
+            <span>afraid</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-17" value="satisfied" onchange="checkAnswer('lex-17', 'satisfied', 'satisfied', 'Completing all problems correctly and smiling happily shows he felt satisfied with his effort.')">
+            <span>satisfied</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-17" value="foreign" onchange="checkAnswer('lex-17', 'foreign', 'satisfied', 'Completing all problems correctly and smiling happily shows he felt satisfied with his effort.')">
+            <span>foreign</span>
+          </label>
+        
+      </div>
+      <div class="feedback-box" id="feedback-lex-17" style="display:none;"></div>
+    </div>
+  
+    <div class="question-card" id="lex-card-lex-18">
+      <div class="question-header">
+        <span class="q-number">Question 18</span>
+        <span class="q-tag">Agriculture & Nature</span>
+      </div>
+      <p class="passage-text">"The farmer looked across the green fields near the riverbank. Every seed had sprouted into healthy corn, and the vegetables grew twice as big as last year."</p>
+      <p class="prompt-text"><strong>Prompt:</strong> The soil on the farm was very ________.</p>
+      <div class="options-grid">
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-18" value="silent" onchange="checkAnswer('lex-18', 'silent', 'fertile', 'Soil that produces abundant, flourishing crops is fertile.')">
+            <span>silent</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-18" value="fertile" onchange="checkAnswer('lex-18', 'fertile', 'fertile', 'Soil that produces abundant, flourishing crops is fertile.')">
+            <span>fertile</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-18" value="complicated" onchange="checkAnswer('lex-18', 'complicated', 'fertile', 'Soil that produces abundant, flourishing crops is fertile.')">
+            <span>complicated</span>
+          </label>
+        
+          <label class="option-label">
+            <input type="radio" name="lex_lex-18" value="deserted" onchange="checkAnswer('lex-18', 'deserted', 'fertile', 'Soil that produces abundant, flourishing crops is fertile.')">
+            <span>deserted</span>
+          </label>
+        
+      </div>
+      <div class="feedback-box" id="feedback-lex-18" style="display:none;"></div>
+    </div>
+  
+  </div>
+
+  <!-- SECTION 3: QAR STRATEGY & COMPREHENSION -->
+  <div class="section-block page-break">
+    <div class="section-title">
+      <span>Unit 3: QAR (Question-Answer Relationships) Masterclass</span>
+    </div>
+    <p class="section-intro">
+      QAR teaches you where to find the answers to reading comprehension questions. Master the four categories:
+    </p>
+    <div class="qar-grid">
+      
+    <div class="qar-card in-book">
+      <div class="qar-pill">In the Book</div>
+      <h3 class="qar-title">Right There</h3>
+      <p><strong>What is it?</strong> The answer is directly in the text. The words used in the question and the words used for the answer are right in the same sentence.</p>
+      <p><strong>How to find it?</strong> Look for key words from the question directly in the passage. You can put your finger right on it.</p>
+      <div class="qar-example">
+        <p><strong>Example Question:</strong> Who was sitting next to Pedro?</p>
+        <p><strong>Answer:</strong> His mom was sitting next to him. (Found in: "Pedro grabbed his mom’s hand.")</p>
+      </div>
+    </div>
+  
+    <div class="qar-card in-book">
+      <div class="qar-pill">In the Book</div>
+      <h3 class="qar-title">Think and Search</h3>
+      <p><strong>What is it?</strong> The answer is in the text, but you need to look in more than one place or think about context clues (like finding a synonym or summary).</p>
+      <p><strong>How to find it?</strong> Search across multiple sentences, connect ideas, or find a vocabulary match from clues.</p>
+      <div class="qar-example">
+        <p><strong>Example Question:</strong> Find a word in the passage that means "snatched".</p>
+        <p><strong>Answer:</strong> "Grabbed" (You have to search the sentences and connect the meaning of snatched to grabbed).</p>
+      </div>
+    </div>
+  
+    <div class="qar-card in-head">
+      <div class="qar-pill">In My Head</div>
+      <h3 class="qar-title">Author and Me</h3>
+      <p><strong>What is it?</strong> The answer is not directly stated in the text. You must combine clues from the author with your own life experience and background knowledge.</p>
+      <p><strong>How to find it?</strong> Ask yourself: What does the author tell me, and what do I already know about this feeling or situation?</p>
+      <div class="qar-example">
+        <p><strong>Example Question:</strong> Why do you think Pedro smiled at the end of the flight?</p>
+        <p><strong>Answer:</strong> Because he overcame his fear and realized that flying was fun and exciting.</p>
+      </div>
+    </div>
+  
+    <div class="qar-card in-head">
+      <div class="qar-pill">In My Head</div>
+      <h3 class="qar-title">On My Own</h3>
+      <p><strong>What is it?</strong> You can answer the question without even reading the story! It asks about your own thoughts, life experiences, or general knowledge.</p>
+      <p><strong>How to find it?</strong> Look into your own mind and feelings. The text is not needed to answer the question.</p>
+      <div class="qar-example">
+        <p><strong>Example Question:</strong> How would you feel if you had to ride an airplane for the very first time?</p>
+        <p><strong>Answer:</strong> I would feel excited and a little nervous to look out the small window.</p>
+      </div>
+    </div>
+  
+    </div>
+    <h3 style="font-size:18px; margin: 24px 0 12px 0;">Reading Passages & QAR Practice</h3>
+    
+    <div class="passage-block">
+      <h3 class="passage-title">Pedro's First Flight</h3>
+      <div class="passage-box">It was Pedro's first time on a plane. He looked at the long runway ahead and asked if it was safe. His mom smiled and nodded. Then the plane started to go faster and faster. Pedro grabbed his mom's hand as the plane left the ground. He looked outside and saw big fluffy clouds. Pedro felt just like a bird! He smiled at his mom, and she smiled back. Pedro liked flying on a plane.</div>
+      <div class="passage-questions">
+        
+          <div class="passage-q" id="comp-card-pedro-q1">
+            <div class="comp-q-head">
+              <span class="comp-num">Q1</span>
+              <span class="qar-badge">Right There</span>
+            </div>
+            <p class="comp-title">Where is Pedro?</p>
+            <div class="options-list">
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_pedro-q1" value="in a car" onchange="checkAnswer('pedro-q1', 'in a car', 'in a plane', 'Sentence 1 directly states: &quot;It was Pedro&#39;s first time on a plane.&quot;')">
+                  <span>in a car</span>
+                </label>
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_pedro-q1" value="at home" onchange="checkAnswer('pedro-q1', 'at home', 'in a plane', 'Sentence 1 directly states: &quot;It was Pedro&#39;s first time on a plane.&quot;')">
+                  <span>at home</span>
+                </label>
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_pedro-q1" value="on a train" onchange="checkAnswer('pedro-q1', 'on a train', 'in a plane', 'Sentence 1 directly states: &quot;It was Pedro&#39;s first time on a plane.&quot;')">
+                  <span>on a train</span>
+                </label>
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_pedro-q1" value="in a plane" onchange="checkAnswer('pedro-q1', 'in a plane', 'in a plane', 'Sentence 1 directly states: &quot;It was Pedro&#39;s first time on a plane.&quot;')">
+                  <span>in a plane</span>
+                </label>
+              
+            </div>
+            <div class="feedback-box" id="feedback-pedro-q1" style="display:none;"></div>
+          </div>
+        
+          <div class="passage-q" id="comp-card-pedro-q2">
+            <div class="comp-q-head">
+              <span class="comp-num">Q2</span>
+              <span class="qar-badge">Right There</span>
+            </div>
+            <p class="comp-title">Who is with Pedro?</p>
+            <div class="options-list">
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_pedro-q2" value="his dad" onchange="checkAnswer('pedro-q2', 'his dad', 'his mom', 'Sentence 3 states: &quot;His mom smiled and nodded.&quot;')">
+                  <span>his dad</span>
+                </label>
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_pedro-q2" value="his mom" onchange="checkAnswer('pedro-q2', 'his mom', 'his mom', 'Sentence 3 states: &quot;His mom smiled and nodded.&quot;')">
+                  <span>his mom</span>
+                </label>
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_pedro-q2" value="his sister" onchange="checkAnswer('pedro-q2', 'his sister', 'his mom', 'Sentence 3 states: &quot;His mom smiled and nodded.&quot;')">
+                  <span>his sister</span>
+                </label>
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_pedro-q2" value="his grandmother" onchange="checkAnswer('pedro-q2', 'his grandmother', 'his mom', 'Sentence 3 states: &quot;His mom smiled and nodded.&quot;')">
+                  <span>his grandmother</span>
+                </label>
+              
+            </div>
+            <div class="feedback-box" id="feedback-pedro-q2" style="display:none;"></div>
+          </div>
+        
+          <div class="passage-q" id="comp-card-pedro-q3">
+            <div class="comp-q-head">
+              <span class="comp-num">Q3</span>
+              <span class="qar-badge">Think and Search</span>
+            </div>
+            <p class="comp-title">How does Pedro feel at first?</p>
+            <div class="options-list">
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_pedro-q3" value="excited" onchange="checkAnswer('pedro-q3', 'excited', 'afraid', 'Pedro asks if it is safe and tightly grabs his mom&#39;s hand as the plane accelerates, showing he was fearful/nervous at first.')">
+                  <span>excited</span>
+                </label>
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_pedro-q3" value="sad" onchange="checkAnswer('pedro-q3', 'sad', 'afraid', 'Pedro asks if it is safe and tightly grabs his mom&#39;s hand as the plane accelerates, showing he was fearful/nervous at first.')">
+                  <span>sad</span>
+                </label>
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_pedro-q3" value="afraid" onchange="checkAnswer('pedro-q3', 'afraid', 'afraid', 'Pedro asks if it is safe and tightly grabs his mom&#39;s hand as the plane accelerates, showing he was fearful/nervous at first.')">
+                  <span>afraid</span>
+                </label>
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_pedro-q3" value="hungry" onchange="checkAnswer('pedro-q3', 'hungry', 'afraid', 'Pedro asks if it is safe and tightly grabs his mom&#39;s hand as the plane accelerates, showing he was fearful/nervous at first.')">
+                  <span>hungry</span>
+                </label>
+              
+            </div>
+            <div class="feedback-box" id="feedback-pedro-q3" style="display:none;"></div>
+          </div>
+        
+          <div class="passage-q" id="comp-card-pedro-q4">
+            <div class="comp-q-head">
+              <span class="comp-num">Q4</span>
+              <span class="qar-badge">Think and Search</span>
+            </div>
+            <p class="comp-title">Find a word in the passage that means "snatched" or seized quickly:</p>
+            <div class="options-list">
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_pedro-q4" value="grabbed" onchange="checkAnswer('pedro-q4', 'grabbed', 'grabbed', 'The sentence says &quot;Pedro grabbed his mom&#39;s hand.&quot; Grabbed means seized or snatched quickly.')">
+                  <span>grabbed</span>
+                </label>
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_pedro-q4" value="smiled" onchange="checkAnswer('pedro-q4', 'smiled', 'grabbed', 'The sentence says &quot;Pedro grabbed his mom&#39;s hand.&quot; Grabbed means seized or snatched quickly.')">
+                  <span>smiled</span>
+                </label>
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_pedro-q4" value="looked" onchange="checkAnswer('pedro-q4', 'looked', 'grabbed', 'The sentence says &quot;Pedro grabbed his mom&#39;s hand.&quot; Grabbed means seized or snatched quickly.')">
+                  <span>looked</span>
+                </label>
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_pedro-q4" value="nodded" onchange="checkAnswer('pedro-q4', 'nodded', 'grabbed', 'The sentence says &quot;Pedro grabbed his mom&#39;s hand.&quot; Grabbed means seized or snatched quickly.')">
+                  <span>nodded</span>
+                </label>
+              
+            </div>
+            <div class="feedback-box" id="feedback-pedro-q4" style="display:none;"></div>
+          </div>
+        
+          <div class="passage-q" id="comp-card-pedro-q5">
+            <div class="comp-q-head">
+              <span class="comp-num">Q5</span>
+              <span class="qar-badge">Think and Search</span>
+            </div>
+            <p class="comp-title">Which is the most suitable title for this reading passage?</p>
+            <div class="options-list">
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_pedro-q5" value="Building an Airplane" onchange="checkAnswer('pedro-q5', 'Building an Airplane', 'Pedro's First Flight', 'The entire story focuses on Pedro experiencing his very first flight on an airplane.')">
+                  <span>Building an Airplane</span>
+                </label>
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_pedro-q5" value="Pedro's First Flight" onchange="checkAnswer('pedro-q5', 'Pedro's First Flight', 'Pedro's First Flight', 'The entire story focuses on Pedro experiencing his very first flight on an airplane.')">
+                  <span>Pedro's First Flight</span>
+                </label>
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_pedro-q5" value="A Day at the Airport Train" onchange="checkAnswer('pedro-q5', 'A Day at the Airport Train', 'Pedro's First Flight', 'The entire story focuses on Pedro experiencing his very first flight on an airplane.')">
+                  <span>A Day at the Airport Train</span>
+                </label>
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_pedro-q5" value="Clouds in the Sky" onchange="checkAnswer('pedro-q5', 'Clouds in the Sky', 'Pedro's First Flight', 'The entire story focuses on Pedro experiencing his very first flight on an airplane.')">
+                  <span>Clouds in the Sky</span>
+                </label>
+              
+            </div>
+            <div class="feedback-box" id="feedback-pedro-q5" style="display:none;"></div>
+          </div>
+        
+          <div class="passage-q" id="comp-card-pedro-q6">
+            <div class="comp-q-head">
+              <span class="comp-num">Q6</span>
+              <span class="qar-badge">Think and Search</span>
+            </div>
+            <p class="comp-title">Which type of QAR question is: "Find a word in the passage that means 'snatched'"?</p>
+            <div class="options-list">
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_pedro-q6" value="On My Own" onchange="checkAnswer('pedro-q6', 'On My Own', 'Think and Search', 'It requires you to search the text for a word with a matching meaning using context clues rather than finding the exact word &quot;snatched&quot; written in the story.')">
+                  <span>On My Own</span>
+                </label>
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_pedro-q6" value="Think and Search" onchange="checkAnswer('pedro-q6', 'Think and Search', 'Think and Search', 'It requires you to search the text for a word with a matching meaning using context clues rather than finding the exact word &quot;snatched&quot; written in the story.')">
+                  <span>Think and Search</span>
+                </label>
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_pedro-q6" value="Right There" onchange="checkAnswer('pedro-q6', 'Right There', 'Think and Search', 'It requires you to search the text for a word with a matching meaning using context clues rather than finding the exact word &quot;snatched&quot; written in the story.')">
+                  <span>Right There</span>
+                </label>
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_pedro-q6" value="Author and Me" onchange="checkAnswer('pedro-q6', 'Author and Me', 'Think and Search', 'It requires you to search the text for a word with a matching meaning using context clues rather than finding the exact word &quot;snatched&quot; written in the story.')">
+                  <span>Author and Me</span>
+                </label>
+              
+            </div>
+            <div class="feedback-box" id="feedback-pedro-q6" style="display:none;"></div>
+          </div>
+        
+          <div class="passage-q" id="comp-card-pedro-q7">
+            <div class="comp-q-head">
+              <span class="comp-num">Q7</span>
+              <span class="qar-badge">Author and Me</span>
+            </div>
+            <p class="comp-title">What made Pedro stop being scared and begin enjoying the journey?</p>
+            <div class="options-list">
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_pedro-q7" value="He ate a meal" onchange="checkAnswer('pedro-q7', 'He ate a meal', 'He saw big fluffy clouds and felt like a bird', 'Combining Pedro looking outside at the fluffy clouds and smiling shows that the scenic view helped him enjoy flying.')">
+                  <span>He ate a meal</span>
+                </label>
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_pedro-q7" value="He saw big fluffy clouds and felt like a bird" onchange="checkAnswer('pedro-q7', 'He saw big fluffy clouds and felt like a bird', 'He saw big fluffy clouds and felt like a bird', 'Combining Pedro looking outside at the fluffy clouds and smiling shows that the scenic view helped him enjoy flying.')">
+                  <span>He saw big fluffy clouds and felt like a bird</span>
+                </label>
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_pedro-q7" value="He fell asleep" onchange="checkAnswer('pedro-q7', 'He fell asleep', 'He saw big fluffy clouds and felt like a bird', 'Combining Pedro looking outside at the fluffy clouds and smiling shows that the scenic view helped him enjoy flying.')">
+                  <span>He fell asleep</span>
+                </label>
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_pedro-q7" value="The pilot talked to him" onchange="checkAnswer('pedro-q7', 'The pilot talked to him', 'He saw big fluffy clouds and felt like a bird', 'Combining Pedro looking outside at the fluffy clouds and smiling shows that the scenic view helped him enjoy flying.')">
+                  <span>The pilot talked to him</span>
+                </label>
+              
+            </div>
+            <div class="feedback-box" id="feedback-pedro-q7" style="display:none;"></div>
+          </div>
+        
+          <div class="passage-q" id="comp-card-pedro-q8">
+            <div class="comp-q-head">
+              <span class="comp-num">Q8</span>
+              <span class="qar-badge">On My Own</span>
+            </div>
+            <p class="comp-title">Have you ever tried something new that seemed scary at first? How did you feel?</p>
+            <div class="options-list">
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_pedro-q8" value="It depends on my own personal memory and experience" onchange="checkAnswer('pedro-q8', 'It depends on my own personal memory and experience', 'It depends on my own personal memory and experience', 'This question relates to the reader&#39;s own life and does not need information from the passage.')">
+                  <span>It depends on my own personal memory and experience</span>
+                </label>
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_pedro-q8" value="Only on an airplane" onchange="checkAnswer('pedro-q8', 'Only on an airplane', 'It depends on my own personal memory and experience', 'This question relates to the reader&#39;s own life and does not need information from the passage.')">
+                  <span>Only on an airplane</span>
+                </label>
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_pedro-q8" value="Pedro knows the answer" onchange="checkAnswer('pedro-q8', 'Pedro knows the answer', 'It depends on my own personal memory and experience', 'This question relates to the reader&#39;s own life and does not need information from the passage.')">
+                  <span>Pedro knows the answer</span>
+                </label>
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_pedro-q8" value="It was on page 2" onchange="checkAnswer('pedro-q8', 'It was on page 2', 'It depends on my own personal memory and experience', 'This question relates to the reader&#39;s own life and does not need information from the passage.')">
+                  <span>It was on page 2</span>
+                </label>
+              
+            </div>
+            <div class="feedback-box" id="feedback-pedro-q8" style="display:none;"></div>
+          </div>
+        
+      </div>
+    </div>
+  
+    <div class="passage-block">
+      <h3 class="passage-title">The Young Falcon over the Desert</h3>
+      <div class="passage-box">Suhail woke up early before sunrise. The desert air was crisp and chilly. Today, his grandfather was taking him to train their young peregrine falcon, Shaheen. Suhail carefully tied the leather jesses to the bird's legs. Shaheen flapped his vigorous wings and released a sharp cry. When grandfather signaled, Suhail raised his gloved hand. Shaheen soared into the golden morning sky, circling higher and higher until he looked like a tiny speck. Suhail held his breath, watching his beloved bird return directly to his glove.</div>
+      <div class="passage-questions">
+        
+          <div class="passage-q" id="comp-card-falcon-q1">
+            <div class="comp-q-head">
+              <span class="comp-num">Q1</span>
+              <span class="qar-badge">Right There</span>
+            </div>
+            <p class="comp-title">What is the name of the young falcon?</p>
+            <div class="options-list">
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_falcon-q1" value="Suhail" onchange="checkAnswer('falcon-q1', 'Suhail', 'Shaheen', 'The text says: &quot;train their young peregrine falcon, Shaheen.&quot;')">
+                  <span>Suhail</span>
+                </label>
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_falcon-q1" value="Shaheen" onchange="checkAnswer('falcon-q1', 'Shaheen', 'Shaheen', 'The text says: &quot;train their young peregrine falcon, Shaheen.&quot;')">
+                  <span>Shaheen</span>
+                </label>
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_falcon-q1" value="Peregrine" onchange="checkAnswer('falcon-q1', 'Peregrine', 'Shaheen', 'The text says: &quot;train their young peregrine falcon, Shaheen.&quot;')">
+                  <span>Peregrine</span>
+                </label>
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_falcon-q1" value="Grandfather" onchange="checkAnswer('falcon-q1', 'Grandfather', 'Shaheen', 'The text says: &quot;train their young peregrine falcon, Shaheen.&quot;')">
+                  <span>Grandfather</span>
+                </label>
+              
+            </div>
+            <div class="feedback-box" id="feedback-falcon-q1" style="display:none;"></div>
+          </div>
+        
+          <div class="passage-q" id="comp-card-falcon-q2">
+            <div class="comp-q-head">
+              <span class="comp-num">Q2</span>
+              <span class="qar-badge">Think and Search</span>
+            </div>
+            <p class="comp-title">Find a word in the story that means "energetic and forceful":</p>
+            <div class="options-list">
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_falcon-q2" value="chilly" onchange="checkAnswer('falcon-q2', 'chilly', 'vigorous', 'Shaheen flapped his &quot;vigorous&quot; wings. Vigorous means energetic, strong, and forceful.')">
+                  <span>chilly</span>
+                </label>
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_falcon-q2" value="crisp" onchange="checkAnswer('falcon-q2', 'crisp', 'vigorous', 'Shaheen flapped his &quot;vigorous&quot; wings. Vigorous means energetic, strong, and forceful.')">
+                  <span>crisp</span>
+                </label>
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_falcon-q2" value="vigorous" onchange="checkAnswer('falcon-q2', 'vigorous', 'vigorous', 'Shaheen flapped his &quot;vigorous&quot; wings. Vigorous means energetic, strong, and forceful.')">
+                  <span>vigorous</span>
+                </label>
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_falcon-q2" value="beloved" onchange="checkAnswer('falcon-q2', 'beloved', 'vigorous', 'Shaheen flapped his &quot;vigorous&quot; wings. Vigorous means energetic, strong, and forceful.')">
+                  <span>beloved</span>
+                </label>
+              
+            </div>
+            <div class="feedback-box" id="feedback-falcon-q2" style="display:none;"></div>
+          </div>
+        
+          <div class="passage-q" id="comp-card-falcon-q3">
+            <div class="comp-q-head">
+              <span class="comp-num">Q3</span>
+              <span class="qar-badge">Author and Me</span>
+            </div>
+            <p class="comp-title">Why did Suhail wear a thick glove on his hand?</p>
+            <div class="options-list">
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_falcon-q3" value="Because it was cold" onchange="checkAnswer('falcon-q3', 'Because it was cold', 'To protect his hand from the falcon's sharp talons', 'The author mentions the bird landing on the glove. You combine this with knowledge that birds of prey have sharp claws.')">
+                  <span>Because it was cold</span>
+                </label>
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_falcon-q3" value="To protect his hand from the falcon's sharp talons" onchange="checkAnswer('falcon-q3', 'To protect his hand from the falcon's sharp talons', 'To protect his hand from the falcon's sharp talons', 'The author mentions the bird landing on the glove. You combine this with knowledge that birds of prey have sharp claws.')">
+                  <span>To protect his hand from the falcon's sharp talons</span>
+                </label>
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_falcon-q3" value="Because his grandfather told him to hide" onchange="checkAnswer('falcon-q3', 'Because his grandfather told him to hide', 'To protect his hand from the falcon's sharp talons', 'The author mentions the bird landing on the glove. You combine this with knowledge that birds of prey have sharp claws.')">
+                  <span>Because his grandfather told him to hide</span>
+                </label>
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_falcon-q3" value="To feed hamburger" onchange="checkAnswer('falcon-q3', 'To feed hamburger', 'To protect his hand from the falcon's sharp talons', 'The author mentions the bird landing on the glove. You combine this with knowledge that birds of prey have sharp claws.')">
+                  <span>To feed hamburger</span>
+                </label>
+              
+            </div>
+            <div class="feedback-box" id="feedback-falcon-q3" style="display:none;"></div>
+          </div>
+        
+          <div class="passage-q" id="comp-card-falcon-q4">
+            <div class="comp-q-head">
+              <span class="comp-num">Q4</span>
+              <span class="qar-badge">On My Own</span>
+            </div>
+            <p class="comp-title">Why is it important to take good care of animals and pets?</p>
+            <div class="options-list">
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_falcon-q4" value="Because all living animals need food, respect, and kindness" onchange="checkAnswer('falcon-q4', 'Because all living animals need food, respect, and kindness', 'Because all living animals need food, respect, and kindness', 'An &quot;On My Own&quot; question relies on moral understanding and personal values without reading the text.')">
+                  <span>Because all living animals need food, respect, and kindness</span>
+                </label>
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_falcon-q4" value="Only falcons need care" onchange="checkAnswer('falcon-q4', 'Only falcons need care', 'Because all living animals need food, respect, and kindness', 'An &quot;On My Own&quot; question relies on moral understanding and personal values without reading the text.')">
+                  <span>Only falcons need care</span>
+                </label>
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_falcon-q4" value="Because books say so" onchange="checkAnswer('falcon-q4', 'Because books say so', 'Because all living animals need food, respect, and kindness', 'An &quot;On My Own&quot; question relies on moral understanding and personal values without reading the text.')">
+                  <span>Because books say so</span>
+                </label>
+              
+                <label class="option-label">
+                  <input type="radio" name="comp_falcon-q4" value="Grandfather said to leave them alone" onchange="checkAnswer('falcon-q4', 'Grandfather said to leave them alone', 'Because all living animals need food, respect, and kindness', 'An &quot;On My Own&quot; question relies on moral understanding and personal values without reading the text.')">
+                  <span>Grandfather said to leave them alone</span>
+                </label>
+              
+            </div>
+            <div class="feedback-box" id="feedback-falcon-q4" style="display:none;"></div>
+          </div>
+        
+      </div>
+    </div>
+  
+  </div>
+
+  <!-- SECTION 4: GRAMMAR, VERBS & TENSES -->
+  <div class="section-block page-break">
+    <div class="section-title">
+      <span>Unit 4: Grammar, Verb Tenses & Word Anatomy</span>
+    </div>
+    <p class="section-intro">
+      Master verbs, simple present tense rules, present continuous (-ing), prefixes, suffixes, base words, and spatial prepositions.
+    </p>
+    
+    <div class="grammar-card">
+      <h3>Lesson 1: Verbs and the Simple Present Tense</h3>
+      <p class="concept-lead"><strong>Concept:</strong> A verb is a word that shows an action, occurrence, or state of being. We change the verb to show when something happens.</p>
+      <p class="rule-box"><strong>Key Rule:</strong> In the Simple Present Tense, if the subject is singular (he, she, it, singular noun), we add "-s" or "-es" to the base verb. If the subject is plural (they, we, you, I), we keep the base verb.</p>
+      <div class="examples-table-wrap">
+        <table class="simple-table">
+          <thead>
+            <tr>
+              <th>Correct Usage</th>
+              <th>Common Error to Avoid</th>
+              <th>Rule Explanation</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td class="text-emerald-700 font-semibold">He runs to the park every day.</td>
+                <td class="text-rose-600 line-through">He run to the park everyday.</td>
+                <td class="text-slate-600 text-sm">Add "s" because "He" is singular.</td>
+              </tr>
+            
+              <tr>
+                <td class="text-emerald-700 font-semibold">The girls read books after school.</td>
+                <td class="text-rose-600 line-through">The girls reads books after school.</td>
+                <td class="text-slate-600 text-sm">"The girls" is plural, so use base verb "read".</td>
+              </tr>
+            
+              <tr>
+                <td class="text-emerald-700 font-semibold">Water boils at 100 degrees Celsius.</td>
+                <td class="text-rose-600 line-through">—</td>
+                <td class="text-slate-600 text-sm">Used for scientific facts and habitual actions.</td>
+              </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      <div class="grammar-practice">
+        <h4>Practice Exercises</h4>
+        
+          <div class="pq-item" id="grammar-card-g-1">
+            <p><strong>1.</strong> What is a verb?</p>
+            
+              <div class="options-grid">
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-1" value="A word that describes the noun" onchange="checkAnswer('g-1', 'A word that describes the noun', 'An action or state of being', 'A verb tells what someone is doing or experiencing.')">
+                    <span>A word that describes the noun</span>
+                  </label>
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-1" value="A person, place, or thing" onchange="checkAnswer('g-1', 'A person, place, or thing', 'An action or state of being', 'A verb tells what someone is doing or experiencing.')">
+                    <span>A person, place, or thing</span>
+                  </label>
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-1" value="Something put in front of a noun to show more than one" onchange="checkAnswer('g-1', 'Something put in front of a noun to show more than one', 'An action or state of being', 'A verb tells what someone is doing or experiencing.')">
+                    <span>Something put in front of a noun to show more than one</span>
+                  </label>
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-1" value="An action or state of being" onchange="checkAnswer('g-1', 'An action or state of being', 'An action or state of being', 'A verb tells what someone is doing or experiencing.')">
+                    <span>An action or state of being</span>
+                  </label>
+                
+              </div>
+            
+            <div class="feedback-box" id="feedback-g-1" style="display:none;"></div>
+          </div>
+        
+          <div class="pq-item" id="grammar-card-g-2">
+            <p><strong>2.</strong> Which of the following is a verb?</p>
+            
+              <div class="options-grid">
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-2" value="teacher" onchange="checkAnswer('g-2', 'teacher', 'jump', 'Teacher is a person, Doha is a city, red is an adjective, but jump is an action.')">
+                    <span>teacher</span>
+                  </label>
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-2" value="Doha" onchange="checkAnswer('g-2', 'Doha', 'jump', 'Teacher is a person, Doha is a city, red is an adjective, but jump is an action.')">
+                    <span>Doha</span>
+                  </label>
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-2" value="jump" onchange="checkAnswer('g-2', 'jump', 'jump', 'Teacher is a person, Doha is a city, red is an adjective, but jump is an action.')">
+                    <span>jump</span>
+                  </label>
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-2" value="red" onchange="checkAnswer('g-2', 'red', 'jump', 'Teacher is a person, Doha is a city, red is an adjective, but jump is an action.')">
+                    <span>red</span>
+                  </label>
+                
+              </div>
+            
+            <div class="feedback-box" id="feedback-g-2" style="display:none;"></div>
+          </div>
+        
+          <div class="pq-item" id="grammar-card-g-3">
+            <p><strong>3.</strong> How do we show when something happens in a sentence?</p>
+            
+              <div class="options-grid">
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-3" value="change the noun" onchange="checkAnswer('g-3', 'change the noun', 'change the verb tense', 'Tenses (past, present, future) are formed by changing the verb.')">
+                    <span>change the noun</span>
+                  </label>
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-3" value="change the adjective" onchange="checkAnswer('g-3', 'change the adjective', 'change the verb tense', 'Tenses (past, present, future) are formed by changing the verb.')">
+                    <span>change the adjective</span>
+                  </label>
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-3" value="change the adverb" onchange="checkAnswer('g-3', 'change the adverb', 'change the verb tense', 'Tenses (past, present, future) are formed by changing the verb.')">
+                    <span>change the adverb</span>
+                  </label>
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-3" value="change the verb tense" onchange="checkAnswer('g-3', 'change the verb tense', 'change the verb tense', 'Tenses (past, present, future) are formed by changing the verb.')">
+                    <span>change the verb tense</span>
+                  </label>
+                
+              </div>
+            
+            <div class="feedback-box" id="feedback-g-3" style="display:none;"></div>
+          </div>
+        
+          <div class="pq-item" id="grammar-card-g-4">
+            <p><strong>4.</strong> Fix this sentence: "He run to the park everyday."</p>
+            
+              <div class="fill-in-box">
+                <input type="text" id="input-g-4" placeholder="Type corrected sentence..." class="text-input" />
+                <button type="button" class="btn btn-sm" onclick="checkTextInput('g-4', 'He runs to the park every day.', 'He is singular third-person, so add &quot;s&quot; to run.')">Check Answer</button>
+              </div>
+            
+            <div class="feedback-box" id="feedback-g-4" style="display:none;"></div>
+          </div>
+        
+      </div>
+    </div>
+  
+    <div class="grammar-card">
+      <h3>Lesson 2: The Present Continuous Tense</h3>
+      <p class="concept-lead"><strong>Concept:</strong> We use the Present Continuous Tense when an action is happening right now, at the exact moment of speaking.</p>
+      <p class="rule-box"><strong>Key Rule:</strong> Formed by: Subject + am/is/are + verb ending in "-ing". (e.g., I am running, He is studying, They are jumping).</p>
+      <div class="examples-table-wrap">
+        <table class="simple-table">
+          <thead>
+            <tr>
+              <th>Correct Usage</th>
+              <th>Common Error to Avoid</th>
+              <th>Rule Explanation</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td class="text-emerald-700 font-semibold">I am jumping right now.</td>
+                <td class="text-rose-600 line-through">I am jump right now.</td>
+                <td class="text-slate-600 text-sm">Must add "-ing" to the main verb after "am".</td>
+              </tr>
+            
+              <tr>
+                <td class="text-emerald-700 font-semibold">He is studying for his test.</td>
+                <td class="text-rose-600 line-through">He is study.</td>
+                <td class="text-slate-600 text-sm">"is study" is incorrect; use "is studying".</td>
+              </tr>
+            
+              <tr>
+                <td class="text-emerald-700 font-semibold">The birds are singing in the garden.</td>
+                <td class="text-rose-600 line-through">—</td>
+                <td class="text-slate-600 text-sm">Happening in the present moment.</td>
+              </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      <div class="grammar-practice">
+        <h4>Practice Exercises</h4>
+        
+          <div class="pq-item" id="grammar-card-g-5">
+            <p><strong>1.</strong> We use the present continuous tense when something is happening...</p>
+            
+              <div class="options-grid">
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-5" value="regularly" onchange="checkAnswer('g-5', 'regularly', 'right now', 'Look for words like &quot;now&quot;, &quot;at the moment&quot;, &quot;currently&quot;.')">
+                    <span>regularly</span>
+                  </label>
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-5" value="in the future" onchange="checkAnswer('g-5', 'in the future', 'right now', 'Look for words like &quot;now&quot;, &quot;at the moment&quot;, &quot;currently&quot;.')">
+                    <span>in the future</span>
+                  </label>
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-5" value="right now" onchange="checkAnswer('g-5', 'right now', 'right now', 'Look for words like &quot;now&quot;, &quot;at the moment&quot;, &quot;currently&quot;.')">
+                    <span>right now</span>
+                  </label>
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-5" value="in the past" onchange="checkAnswer('g-5', 'in the past', 'right now', 'Look for words like &quot;now&quot;, &quot;at the moment&quot;, &quot;currently&quot;.')">
+                    <span>in the past</span>
+                  </label>
+                
+              </div>
+            
+            <div class="feedback-box" id="feedback-g-5" style="display:none;"></div>
+          </div>
+        
+          <div class="pq-item" id="grammar-card-g-6">
+            <p><strong>2.</strong> How could I change the verb "jump" to be in the present continuous tense?</p>
+            
+              <div class="options-grid">
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-6" value="jumps" onchange="checkAnswer('g-6', 'jumps', 'jumping', 'Add &quot;-ing&quot; without doubling the p because there is a consonant blend (mp).')">
+                    <span>jumps</span>
+                  </label>
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-6" value="jumpping" onchange="checkAnswer('g-6', 'jumpping', 'jumping', 'Add &quot;-ing&quot; without doubling the p because there is a consonant blend (mp).')">
+                    <span>jumpping</span>
+                  </label>
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-6" value="jumped" onchange="checkAnswer('g-6', 'jumped', 'jumping', 'Add &quot;-ing&quot; without doubling the p because there is a consonant blend (mp).')">
+                    <span>jumped</span>
+                  </label>
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-6" value="jumping" onchange="checkAnswer('g-6', 'jumping', 'jumping', 'Add &quot;-ing&quot; without doubling the p because there is a consonant blend (mp).')">
+                    <span>jumping</span>
+                  </label>
+                
+              </div>
+            
+            <div class="feedback-box" id="feedback-g-6" style="display:none;"></div>
+          </div>
+        
+          <div class="pq-item" id="grammar-card-g-7">
+            <p><strong>3.</strong> Fix this sentence to be in the present continuous tense: "I am jump right now."</p>
+            
+              <div class="fill-in-box">
+                <input type="text" id="input-g-7" placeholder="Type corrected sentence..." class="text-input" />
+                <button type="button" class="btn btn-sm" onclick="checkTextInput('g-7', 'I am jumping right now.', 'Add -ing to jump.')">Check Answer</button>
+              </div>
+            
+            <div class="feedback-box" id="feedback-g-7" style="display:none;"></div>
+          </div>
+        
+          <div class="pq-item" id="grammar-card-g-8">
+            <p><strong>4.</strong> Fix this sentence to be in the present continuous tense: "He is study."</p>
+            
+              <div class="fill-in-box">
+                <input type="text" id="input-g-8" placeholder="Type corrected sentence..." class="text-input" />
+                <button type="button" class="btn btn-sm" onclick="checkTextInput('g-8', 'He is studying.', 'Add -ing to study.')">Check Answer</button>
+              </div>
+            
+            <div class="feedback-box" id="feedback-g-8" style="display:none;"></div>
+          </div>
+        
+      </div>
+    </div>
+  
+    <div class="grammar-card">
+      <h3>Lesson 3: Word Anatomy – Prefixes, Suffixes & Base Words</h3>
+      <p class="concept-lead"><strong>Concept:</strong> A root or base word is the simplest form of a word. A prefix is added to the beginning, and a suffix is added to the end to alter its meaning or tense.</p>
+      <p class="rule-box"><strong>Key Rule:</strong> Prefixes change meaning (e.g., mis- = wrongly, sub- = under, un- = not). Suffixes change tense or part of speech (e.g., -ed = past tense, -ing = continuous, -ly = adverb).</p>
+      <div class="examples-table-wrap">
+        <table class="simple-table">
+          <thead>
+            <tr>
+              <th>Correct Usage</th>
+              <th>Common Error to Avoid</th>
+              <th>Rule Explanation</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td class="text-emerald-700 font-semibold">misinterpreted = mis (prefix) + interpret (base word) + ed (suffix)</td>
+                <td class="text-rose-600 line-through">—</td>
+                <td class="text-slate-600 text-sm">Base word is "interpret".</td>
+              </tr>
+            
+              <tr>
+                <td class="text-emerald-700 font-semibold">submarine = sub (prefix meaning under) + marine (relating to sea)</td>
+                <td class="text-rose-600 line-through">—</td>
+                <td class="text-slate-600 text-sm">Prefix sub- means under or beneath.</td>
+              </tr>
+            
+              <tr>
+                <td class="text-emerald-700 font-semibold">talked = talk (base) + ed (suffix showing past tense)</td>
+                <td class="text-rose-600 line-through">—</td>
+                <td class="text-slate-600 text-sm">Suffix -ed signals past.</td>
+              </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      <div class="grammar-practice">
+        <h4>Practice Exercises</h4>
+        
+          <div class="pq-item" id="grammar-card-g-9">
+            <p><strong>1.</strong> Where does a "prefix" go?</p>
+            
+              <div class="options-grid">
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-9" value="In the middle of a word" onchange="checkAnswer('g-9', 'In the middle of a word', 'At the beginning of a word', '&quot;Pre-&quot; means before.')">
+                    <span>In the middle of a word</span>
+                  </label>
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-9" value="At the beginning of a word" onchange="checkAnswer('g-9', 'At the beginning of a word', 'At the beginning of a word', '&quot;Pre-&quot; means before.')">
+                    <span>At the beginning of a word</span>
+                  </label>
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-9" value="At the end of a word" onchange="checkAnswer('g-9', 'At the end of a word', 'At the beginning of a word', '&quot;Pre-&quot; means before.')">
+                    <span>At the end of a word</span>
+                  </label>
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-9" value="Anywhere in a sentence" onchange="checkAnswer('g-9', 'Anywhere in a sentence', 'At the beginning of a word', '&quot;Pre-&quot; means before.')">
+                    <span>Anywhere in a sentence</span>
+                  </label>
+                
+              </div>
+            
+            <div class="feedback-box" id="feedback-g-9" style="display:none;"></div>
+          </div>
+        
+          <div class="pq-item" id="grammar-card-g-10">
+            <p><strong>2.</strong> Add a suffix to the word "talk" to show it is in the past tense:</p>
+            
+              <div class="options-grid">
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-10" value="talks" onchange="checkAnswer('g-10', 'talks', 'talked', 'Regular past tense verbs take the &quot;-ed&quot; suffix.')">
+                    <span>talks</span>
+                  </label>
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-10" value="talking" onchange="checkAnswer('g-10', 'talking', 'talked', 'Regular past tense verbs take the &quot;-ed&quot; suffix.')">
+                    <span>talking</span>
+                  </label>
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-10" value="talked" onchange="checkAnswer('g-10', 'talked', 'talked', 'Regular past tense verbs take the &quot;-ed&quot; suffix.')">
+                    <span>talked</span>
+                  </label>
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-10" value="talker" onchange="checkAnswer('g-10', 'talker', 'talked', 'Regular past tense verbs take the &quot;-ed&quot; suffix.')">
+                    <span>talker</span>
+                  </label>
+                
+              </div>
+            
+            <div class="feedback-box" id="feedback-g-10" style="display:none;"></div>
+          </div>
+        
+          <div class="pq-item" id="grammar-card-g-11">
+            <p><strong>3.</strong> What is the base word of "misinterpreted"?</p>
+            
+              <div class="options-grid">
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-11" value="misinterpret" onchange="checkAnswer('g-11', 'misinterpret', 'interpret', 'Strip away the prefix &quot;mis-&quot; and the suffix &quot;-ed&quot;.')">
+                    <span>misinterpret</span>
+                  </label>
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-11" value="interpreted" onchange="checkAnswer('g-11', 'interpreted', 'interpret', 'Strip away the prefix &quot;mis-&quot; and the suffix &quot;-ed&quot;.')">
+                    <span>interpreted</span>
+                  </label>
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-11" value="interpret" onchange="checkAnswer('g-11', 'interpret', 'interpret', 'Strip away the prefix &quot;mis-&quot; and the suffix &quot;-ed&quot;.')">
+                    <span>interpret</span>
+                  </label>
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-11" value="inter" onchange="checkAnswer('g-11', 'inter', 'interpret', 'Strip away the prefix &quot;mis-&quot; and the suffix &quot;-ed&quot;.')">
+                    <span>inter</span>
+                  </label>
+                
+              </div>
+            
+            <div class="feedback-box" id="feedback-g-11" style="display:none;"></div>
+          </div>
+        
+          <div class="pq-item" id="grammar-card-g-12">
+            <p><strong>4.</strong> What is a prefix that means "under"?</p>
+            
+              <div class="options-grid">
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-12" value="mis" onchange="checkAnswer('g-12', 'mis', 'sub', 'Think of submarine (underwater) or subway (under the street).')">
+                    <span>mis</span>
+                  </label>
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-12" value="sub" onchange="checkAnswer('g-12', 'sub', 'sub', 'Think of submarine (underwater) or subway (under the street).')">
+                    <span>sub</span>
+                  </label>
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-12" value="un" onchange="checkAnswer('g-12', 'un', 'sub', 'Think of submarine (underwater) or subway (under the street).')">
+                    <span>un</span>
+                  </label>
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-12" value="mid" onchange="checkAnswer('g-12', 'mid', 'sub', 'Think of submarine (underwater) or subway (under the street).')">
+                    <span>mid</span>
+                  </label>
+                
+              </div>
+            
+            <div class="feedback-box" id="feedback-g-12" style="display:none;"></div>
+          </div>
+        
+      </div>
+    </div>
+  
+    <div class="grammar-card">
+      <h3>Lesson 4: Prepositions of Place and Time</h3>
+      <p class="concept-lead"><strong>Concept:</strong> Prepositions are linking words that show relationships of position, direction, or time between nouns and other words.</p>
+      <p class="rule-box"><strong>Key Rule:</strong> Prepositions of place show location: in (inside a space), on (on a surface), under (beneath), beside (next to). For holidays and specific calendar days, we use "on" (e.g., "on Qatar National Day").</p>
+      <div class="examples-table-wrap">
+        <table class="simple-table">
+          <thead>
+            <tr>
+              <th>Correct Usage</th>
+              <th>Common Error to Avoid</th>
+              <th>Rule Explanation</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td class="text-emerald-700 font-semibold">The boy is in his house.</td>
+                <td class="text-rose-600 line-through">The boy is on his house.</td>
+                <td class="text-slate-600 text-sm">People stay inside (in) the house, not sitting on the roof.</td>
+              </tr>
+            
+              <tr>
+                <td class="text-emerald-700 font-semibold">We celebrate on Qatar National Day.</td>
+                <td class="text-rose-600 line-through">We celebrate Qatar National Day at.</td>
+                <td class="text-slate-600 text-sm">Use "on" for specific calendar dates and national days.</td>
+              </tr>
+            
+              <tr>
+                <td class="text-emerald-700 font-semibold">The giraffe is beside the box.</td>
+                <td class="text-rose-600 line-through">—</td>
+                <td class="text-slate-600 text-sm">Beside means positioned at the side of.</td>
+              </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      <div class="grammar-practice">
+        <h4>Practice Exercises</h4>
+        
+          <div class="pq-item" id="grammar-card-g-13">
+            <p><strong>1.</strong> What is a preposition?</p>
+            
+              <div class="options-grid">
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-13" value="words that describe nouns" onchange="checkAnswer('g-13', 'words that describe nouns', 'words that link nouns, pronouns and phrases to other words in the sentence', 'Prepositions show relationship of time, place, and direction.')">
+                    <span>words that describe nouns</span>
+                  </label>
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-13" value="words that link nouns, pronouns and phrases to other words in the sentence" onchange="checkAnswer('g-13', 'words that link nouns, pronouns and phrases to other words in the sentence', 'words that link nouns, pronouns and phrases to other words in the sentence', 'Prepositions show relationship of time, place, and direction.')">
+                    <span>words that link nouns, pronouns and phrases to other words in the sentence</span>
+                  </label>
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-13" value="words that change the position of a noun into an adjective" onchange="checkAnswer('g-13', 'words that change the position of a noun into an adjective', 'words that link nouns, pronouns and phrases to other words in the sentence', 'Prepositions show relationship of time, place, and direction.')">
+                    <span>words that change the position of a noun into an adjective</span>
+                  </label>
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-13" value="words that describe when a verb takes place exclusively" onchange="checkAnswer('g-13', 'words that describe when a verb takes place exclusively', 'words that link nouns, pronouns and phrases to other words in the sentence', 'Prepositions show relationship of time, place, and direction.')">
+                    <span>words that describe when a verb takes place exclusively</span>
+                  </label>
+                
+              </div>
+            
+            <div class="feedback-box" id="feedback-g-13" style="display:none;"></div>
+          </div>
+        
+          <div class="pq-item" id="grammar-card-g-14">
+            <p><strong>2.</strong> Where is the giraffe if it is resting inside the cardboard container?</p>
+            
+              <div class="options-grid">
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-14" value="The giraffe is on the box." onchange="checkAnswer('g-14', 'The giraffe is on the box.', 'The giraffe is inside the box.', 'Inside means enclosed within the boundaries.')">
+                    <span>The giraffe is on the box.</span>
+                  </label>
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-14" value="The giraffe is beside the box." onchange="checkAnswer('g-14', 'The giraffe is beside the box.', 'The giraffe is inside the box.', 'Inside means enclosed within the boundaries.')">
+                    <span>The giraffe is beside the box.</span>
+                  </label>
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-14" value="The giraffe is inside the box." onchange="checkAnswer('g-14', 'The giraffe is inside the box.', 'The giraffe is inside the box.', 'Inside means enclosed within the boundaries.')">
+                    <span>The giraffe is inside the box.</span>
+                  </label>
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-14" value="The giraffe is under the box." onchange="checkAnswer('g-14', 'The giraffe is under the box.', 'The giraffe is inside the box.', 'Inside means enclosed within the boundaries.')">
+                    <span>The giraffe is under the box.</span>
+                  </label>
+                
+              </div>
+            
+            <div class="feedback-box" id="feedback-g-14" style="display:none;"></div>
+          </div>
+        
+          <div class="pq-item" id="grammar-card-g-15">
+            <p><strong>3.</strong> Fix the following sentence: "The boy is on his house."</p>
+            
+              <div class="fill-in-box">
+                <input type="text" id="input-g-15" placeholder="Type corrected sentence..." class="text-input" />
+                <button type="button" class="btn btn-sm" onclick="checkTextInput('g-15', 'The boy is in his house.', 'Use &quot;in&quot; for inside a dwelling.')">Check Answer</button>
+              </div>
+            
+            <div class="feedback-box" id="feedback-g-15" style="display:none;"></div>
+          </div>
+        
+          <div class="pq-item" id="grammar-card-g-16">
+            <p><strong>4.</strong> Fill in the blank with the correct preposition: "We celebrate Qatar ___ National Day."</p>
+            
+              <div class="options-grid">
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-16" value="at" onchange="checkAnswer('g-16', 'at', 'on', 'We use &quot;on&quot; with specific days and dates (e.g., on December 18, on National Day).')">
+                    <span>at</span>
+                  </label>
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-16" value="on" onchange="checkAnswer('g-16', 'on', 'on', 'We use &quot;on&quot; with specific days and dates (e.g., on December 18, on National Day).')">
+                    <span>on</span>
+                  </label>
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-16" value="in" onchange="checkAnswer('g-16', 'in', 'on', 'We use &quot;on&quot; with specific days and dates (e.g., on December 18, on National Day).')">
+                    <span>in</span>
+                  </label>
+                
+                  <label class="option-label">
+                    <input type="radio" name="grammar_g-16" value="to" onchange="checkAnswer('g-16', 'to', 'on', 'We use &quot;on&quot; with specific days and dates (e.g., on December 18, on National Day).')">
+                    <span>to</span>
+                  </label>
+                
+              </div>
+            
+            <div class="feedback-box" id="feedback-g-16" style="display:none;"></div>
+          </div>
+        
+      </div>
+    </div>
+  
+  </div>
+
+  <!-- SECTION 5: ANSWER KEY (PRINTABLE AT THE END) -->
+  <div class="section-block page-break">
+    <div class="section-title">
+      <span>Complete Answer Key & Teacher Guide</span>
+    </div>
+    <p class="section-intro">Use this key to check and review all answers.</p>
+    <div style="font-size:13px; line-height: 1.8; columns: 2; column-gap: 24px;">
+      <h4 style="font-size:14px; margin-bottom:6px; color:#1e3a8a;">Lexile Cloze Answers:</h4>
+      <ol style="margin-left: 20px; margin-bottom: 16px;">
+        <li><strong>deserted</strong> – <em>The text states that these ancient cities are "now empty" and that the people who lived in them "disappeared." The word "deserted" means abandoned or empty.</em></li><li><strong>amazing</strong> – <em>Lifting huge buildings with teeth and flying into the sky are extraordinary superhuman feats, proving he was amazing.</em></li><li><strong>surprised</strong> – <em>The narrator exclaims "Amazing! How did she know our names already?" showing unexpected shock and pleasant surprise.</em></li><li><strong>need</strong> – <em>The passage says that without him, "that world will not have a king," proving they urgently require and need him.</em></li><li><strong>swim</strong> – <em>Carrying a beach bag and being told to "have fun at the pool" directly points to swimming.</em></li><li><strong>silent</strong> – <em>"The absence of noise was complete" and "made no sound" are the exact definitions of silent.</em></li><li><strong>flying</strong> – <em>Drifting high in circles above the farm, appearing as a dark speck with wings against the clouds, describes flying.</em></li><li><strong>cold</strong> – <em>Folding his jacket collar against the "chilly" and "biting" morning wind indicates he felt cold.</em></li><li><strong>differently</strong> – <em>The text lists three distinct ways: separate, hyphenated, and one word—meaning they are written in different formats.</em></li><li><strong>specific</strong> – <em>The rules detail exact minute intervals, exact prohibited collision zones, and strict boundaries, making them very specific.</em></li><li><strong>worried</strong> – <em>Lying awake in bed, not feeling good, and feeling "very nervous" are classic signs of feeling worried.</em></li><li><strong>helps</strong> – <em>Carrying someone else’s heavy suitcase is an act of helping them.</em></li><li><strong>together</strong> – <em>Because Thor could not go alone, he assembled five men so they could embark on the journey together as a crew.</em></li><li><strong>grow</strong> – <em>Feeding him more food so he will become "as big as Duke, maybe even bigger" means Ryan wants him to grow.</em></li><li><strong>trip</strong> – <em>Waiting in Boston and riding train connections down the track describes a travel journey or trip.</em></li><li><strong>delicate</strong> – <em>Something that shatters easily with a light bump is delicate and fragile.</em></li><li><strong>satisfied</strong> – <em>Completing all problems correctly and smiling happily shows he felt satisfied with his effort.</em></li><li><strong>fertile</strong> – <em>Soil that produces abundant, flourishing crops is fertile.</em></li>
+      </ol>
+
+      <h4 style="font-size:14px; margin-bottom:6px; color:#1e3a8a;">Pedro's First Flight Answers:</h4>
+      <ol style="margin-left: 20px; margin-bottom: 16px;">
+        <li>in a plane (Right There)</li>
+        <li>his mom (Right There)</li>
+        <li>afraid (Think and Search)</li>
+        <li>grabbed (Think and Search)</li>
+        <li>Pedro's First Flight (Think and Search)</li>
+        <li>Think and Search</li>
+        <li>He saw big fluffy clouds and felt like a bird (Author and Me)</li>
+      </ol>
+
+      <h4 style="font-size:14px; margin-bottom:6px; color:#1e3a8a;">Grammar Answers:</h4>
+      <ul style="margin-left: 20px;">
+        <li>What is a verb? An action or state of being</li>
+        <li>Verb choice: jump</li>
+        <li>Fix sentence: He runs to the park every day.</li>
+        <li>Present continuous: happening right now; jumping; I am jumping right now; He is studying.</li>
+        <li>Prefix: At the beginning; Past tense of talk: talked; Base of misinterpreted: interpret; Prefix meaning under: sub.</li>
+        <li>Preposition: words that link nouns to other words; Giraffe: inside the box; Fix: The boy is in his house; Qatar on National Day.</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  let score = 0;
+  let answered = new Set();
+
+  function checkAnswer(qId, selected, correct, explanation) {
+    const feedbackEl = document.getElementById('feedback-' + qId);
+    if (!feedbackEl) return;
+    
+    feedbackEl.style.display = 'block';
+    if (selected.trim().toLowerCase() === correct.trim().toLowerCase()) {
+      feedbackEl.className = 'feedback-box feedback-correct';
+      feedbackEl.innerHTML = '<strong>Correct!</strong> ' + explanation;
+      if (!answered.has(qId)) {
+        score++;
+        answered.add(qId);
+      }
+    } else {
+      feedbackEl.className = 'feedback-box feedback-incorrect';
+      feedbackEl.innerHTML = '<strong>Not quite.</strong> The correct answer is <strong>' + correct + '</strong>. ' + explanation;
+      answered.add(qId);
+    }
+    updateScoreDisplay();
+  }
+
+  function checkTextInput(qId, correct, hint) {
+    const inputEl = document.getElementById('input-' + qId);
+    const feedbackEl = document.getElementById('feedback-' + qId);
+    if (!inputEl || !feedbackEl) return;
+
+    const val = inputEl.value.trim().toLowerCase().replace(/[.,!]/g, '');
+    const cleanCorrect = correct.trim().toLowerCase().replace(/[.,!]/g, '');
+
+    feedbackEl.style.display = 'block';
+    if (val === cleanCorrect) {
+      feedbackEl.className = 'feedback-box feedback-correct';
+      feedbackEl.innerHTML = '<strong>Awesome job!</strong> Correct answer: ' + correct;
+      if (!answered.has(qId)) {
+        score++;
+        answered.add(qId);
+      }
+    } else {
+      feedbackEl.className = 'feedback-box feedback-incorrect';
+      feedbackEl.innerHTML = '<strong>Expected:</strong> "' + correct + '". <em>Hint: ' + hint + '</em>';
+      answered.add(qId);
+    }
+    updateScoreDisplay();
+  }
+
+  function updateScoreDisplay() {
+    const sEl = document.getElementById('score-display');
+    const aEl = document.getElementById('answered-display');
+    if (sEl) sEl.textContent = score;
+    if (aEl) aEl.textContent = answered.size;
+  }
+
+  function resetAll() {
+    score = 0;
+    answered.clear();
+    document.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
+    document.querySelectorAll('input[type="text"]').forEach(i => i.value = '');
+    document.querySelectorAll('.feedback-box').forEach(fb => {
+      fb.style.display = 'none';
+      fb.innerHTML = '';
+    });
+    updateScoreDisplay();
+  }
+</script>
+</body>
+</html>
