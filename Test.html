@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>110 Midterm English Review</title>
+<style>
+@page{size:A4;margin:14mm}
+:root{--ink:#1d2b3a;--mut:#5b6b7a;--acc:#0f6e6e;--line:#cfd8df;--ok:#17803d;--bad:#c0392b;--bg:#f3f6f8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 "Segoe UI",Verdana,Arial,sans-serif}
+.page{max-width:210mm;margin:0 auto;background:#fff;padding:14mm}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;margin:0}
+h1{font-size:30px;color:var(--acc)}
+h2{font-size:22px;border-bottom:3px solid var(--acc);padding-bottom:4px;margin:28px 0 10px}
+h3{font-size:17px;margin:18px 0 8px}
+.sub{color:var(--mut);margin:4px 0 12px}
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+.stats span{border:1px solid var(--line);border-radius:6px;padding:4px 10px;font-size:13px}
+.box{border:1px solid var(--line);border-left:5px solid var(--acc);padding:8px 12px;margin:10px 0;border-radius:4px;background:#fafcfc}
+.qs{columns:2;column-gap:10mm}
+.q{break-inside:avoid;margin:0 0 9px;padding:5px 7px;border-radius:5px}
+.q p{margin:0 0 3px;font-weight:600}
+.q label{display:block;padding:1px 4px;cursor:pointer;border-radius:3px}
+.q input[type=text]{width:100%;border:0;border-bottom:1px solid var(--mut);font:inherit;padding:2px}
+.q.ok{background:#e8f6ec}.q.no{background:#fdecea}
+.q .ans{display:none;font-size:13px;font-weight:600;margin-top:2px}
+.q.ok .ans{display:block;color:var(--ok)}.q.no .ans{display:block;color:var(--bad)}
+.score{font-weight:700;color:var(--acc);display:none;margin:6px 0}
+.bar{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);padding:8px 14mm;z-index:5;display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap}
+button{font:inherit;font-weight:600;border:0;border-radius:6px;padding:8px 16px;cursor:pointer;background:var(--acc);color:#fff}
+button.alt{background:#fff;color:var(--acc);border:2px solid var(--acc)}
+table{width:100%;border-collapse:collapse;margin:8px 0;font-size:14px}
+th,td{border:1px solid var(--ink);padding:6px 8px;text-align:left;vertical-align:top}
+th{background:#e3eef0}
+td.b{height:30px}
+details{border:1px solid var(--line);border-radius:6px;padding:6px 12px;margin:10px 0}
+summary{cursor:pointer;font-weight:700;color:var(--acc)}
+.tpl{font-size:14px}.tpl li{margin:3px 0}
+.tpl code{background:#eef3f5;padding:1px 5px;border-radius:3px;font-family:inherit;font-weight:600}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fig{text-align:center;border:1px dashed var(--mut);border-radius:6px;padding:6px;width:120px;float:right;margin:0 0 6px 10px;font-size:12px;color:var(--mut)}
+.lines{border-bottom:1px solid var(--mut);height:26px}
+.final{padding:10px 14px;background:#f4faf9;border-radius:6px;font-size:15px}
+@media(max-width:700px){.qs{columns:1}.cols{grid-template-columns:1fr}.page{padding:8mm}}
+@media print{body{background:#fff;font-size:11.5px}.page{padding:0;max-width:none}.bar{display:none}
+h2{break-after:avoid}.wr{break-before:page}details[open] summary{break-after:avoid}table,.box,details{break-inside:avoid}}
+</style></head><body>
+<div class="bar">
+<button onclick="grade()">Submit the whole test</button>
+<button class="alt" onclick="showKey()">Show answer key</button>
+<button class="alt" onclick="location.reload()">Reset</button>
+<button class="alt" onclick="print()">Print (A4)</button>
+</div>
+<div class="page">
+<h1>110 Midterm English Review</h1>
+<p class="sub">Vocabulary + Grammar + Writing task</p>
+<div class="stats"><span>Vocabulary: 76 questions</span><span>Grammar: 50 questions</span><span><b>Total: 126 questions</b></span><span>+ Writing task</span></div>
+<div class="box"><b>How to use:</b> choose one answer for each question. Answers stay hidden until you press <b>Submit the whole test</b> (or <b>Show answer key</b>). The writing answers are at the end, inside closed boxes.</div>
+
+<h2>Part 1: Vocabulary Review (76 questions)</h2>
+<h3>Unit 1 Vocab Quiz (31 questions)</h3><div class="qs" id="u1"></div><div class="score" id="s-u1"></div>
+<h3>Unit 2 Vocab Quiz (21 questions)</h3><div class="qs" id="u2"></div><div class="score" id="s-u2"></div>
+<h3>Unit 3 Vocab Quiz (24 questions)</h3><div class="qs" id="u3"></div><div class="score" id="s-u3"></div>
+
+<h2>Part 2: Grammar Review (50 questions)</h2>
+<div class="qs" id="g"></div><div class="score" id="s-g"></div>
+<div class="score" id="s-all" style="font-size:18px"></div>
+
+<div class="wr">
+<h2>Part 3: Writing Task</h2>
+<div class="box"><b>Rules:</b> use the <b>past simple</b> · use at least <b>3 kinds of time markers</b> · use <b>linking words</b> instead of “;” · write a <b>topic sentence</b> and a <b>concluding sentence</b> · explain <b>2 of the ideas</b> a little bit.</div>
+
+<h3>A. Your skeleton (easy template)</h3>
+<div class="cols tpl">
+<div><b>1. Topic sentence (start)</b><ul>
+<li><code>[Name] was a [job] from [country].</code></li>
+<li><code>[Name] had a very interesting life.</code></li></ul>
+<b>2. Time markers (when?)</b><ul>
+<li><code>In 1955,</code> <code>In 1977,</code></li>
+<li><code>Then,</code> <code>After that,</code> <code>Later,</code></li>
+<li><code>Two years later,</code> <code>Between 1995 and 2000,</code></li>
+<li><code>At first,</code> <code>Finally,</code> <code>In the end,</code></li></ul></div>
+<div><b>3. Linking words (join ideas)</b><ul>
+<li><code>and</code> = add an idea</li>
+<li><code>but</code> / <code>however</code> = a different idea</li>
+<li><code>so</code> = result</li>
+<li><code>because</code> = reason</li>
+<li><code>then</code> / <code>after that</code> = next</li></ul>
+<b>4. Explain an idea (2 times)</b><ul>
+<li><code>She/He did this because ...</code></li>
+<li><code>This was hard, so she/he ...</code></li></ul></div>
+</div>
+<div class="tpl"><b>5. Concluding sentence (end)</b><ul>
+<li><code>In conclusion, [Name] was a ... person.</code></li>
+<li><code>Her/His life shows that ...</code></li></ul>
+<b>Quick steps:</b> ① topic sentence → ② events in order with time markers → ③ explain 2 events → ④ concluding sentence → ⑤ check: past tense? 3 time markers? 80+ words?</div>
+
+<h3>B. Practice table: Aisha Al-Marri, successful businesswoman</h3>
+<div class="fig"><svg viewBox="0 0 80 100" width="80" height="100" fill="none" stroke="#1d2b3a" stroke-width="1.6"><path d="M40 8c-14 0-20 10-20 22 0 8 3 14 6 18h28c3-4 6-10 6-18 0-12-6-22-20-22z"/><ellipse cx="40" cy="34" rx="11" ry="13"/><path d="M30 48c-12 6-18 22-18 50h56c0-28-6-44-18-50"/></svg><br>Draw her here</div>
+<p class="sub">Complete the table: write the past-tense verbs and the time markers.</p>
+<table><tr><th>Date</th><th>Events in her life</th><th>Verbs (past tense)</th><th>Time markers</th></tr>
+<tr><td>1955</td><td>is born in Doha, Qatar</td><td class="b"></td><td class="b"></td></tr>
+<tr><td>1977</td><td>finishes university in Australia; doesn’t find a job</td><td class="b"></td><td class="b"></td></tr>
+<tr><td>1977</td><td>starts a small home fashion business</td><td class="b"></td><td class="b"></td></tr>
+<tr><td>1985</td><td>opens her first clothes shop; hires two workers</td><td class="b"></td><td class="b"></td></tr>
+<tr><td>1988</td><td>has money problems; doesn’t close business</td><td class="b"></td><td class="b"></td></tr>
+<tr><td>1995–2000</td><td>grows the business; opens more shops</td><td class="b"></td><td class="b"></td></tr>
+<tr><td>2016</td><td>retires; daughter takes over business</td><td class="b"></td><td class="b"></td></tr>
+<tr><td>2025</td><td>dies in Doha</td><td class="b"></td><td class="b"></td></tr></table>
+
+<details><summary>Show the completed table and full answer: Aisha Al-Marri</summary>
+<table><tr><th>Date</th><th>Verbs (past tense)</th><th>Time markers</th></tr>
+<tr><td>1955</td><td>was born</td><td>In 1955</td></tr>
+<tr><td>1977</td><td>finished; didn’t find</td><td>In 1977; but</td></tr>
+<tr><td>1977</td><td>started</td><td>Then / In the same year</td></tr>
+<tr><td>1985</td><td>opened; hired</td><td>Eight years later</td></tr>
+<tr><td>1988</td><td>had; didn’t close</td><td>In 1988; however</td></tr>
+<tr><td>1995–2000</td><td>grew; opened</td><td>Between 1995 and 2000</td></tr>
+<tr><td>2016</td><td>retired; took over</td><td>In 2016</td></tr>
+<tr><td>2025</td><td>died</td><td>Finally / In 2025</td></tr></table>
+<p class="final">Aisha Al-Marri was a successful businesswoman from Qatar. She was born in Doha in 1955. In 1977, she finished university in Australia, but she didn’t find a job, so she started a small home fashion business at home. Eight years later, she opened her first clothes shop and hired two workers. In 1988, she had money problems, but she didn’t close her business because she believed in her dream. Instead, she worked harder and saved money. Between 1995 and 2000, she grew the business and opened more shops. In 2016, she retired, and her daughter took over the business. Finally, she died in Doha in 2025. In conclusion, Aisha was a strong woman who never gave up.</p>
+<p class="sub">(Ideas explained: no job → she started her own business; money problems → she worked harder. About 115 words.)</p></details>
+
+<h3>C. Exam practice: Raul Khan, actor</h3>
+<div class="fig"><svg viewBox="0 0 80 100" width="80" height="100" fill="none" stroke="#1d2b3a" stroke-width="1.6"><path d="M28 24c0-12 24-12 24 0"/><ellipse cx="40" cy="34" rx="12" ry="14"/><path d="M12 98c0-28 6-44 28-46 22 2 28 18 28 46"/></svg><br>Draw him here</div>
+<div class="box"><b>SECTION 1: WRITING (/10).</b> Use the information on the timeline to write a paragraph of <b>at least 80 words</b> about the life of Raul Khan. Use time markers, punctuation marks and the simple past tense.</div>
+<table><tr><th>Date</th><th>Events</th></tr>
+<tr><td>1942</td><td>is born in India</td></tr><tr><td>1969</td><td>acts in his first movie</td></tr>
+<tr><td>1973</td><td>becomes famous with <i>Life</i>, his first successful film</td></tr>
+<tr><td>1973</td><td>gets married / starts a family</td></tr>
+<tr><td>1982</td><td>works with other famous actors</td></tr>
+<tr><td>1991</td><td>makes two comedy films</td></tr>
+<tr><td>2001</td><td>wins the “Best Actor” Award in India</td></tr>
+<tr><td>2002</td><td>becomes very rich / lives a very simple life</td></tr>
+<tr><td>2019</td><td>gives a lot of money to poor farmers</td></tr></table>
+<p class="sub">Brainstorming space (not graded):</p><div class="lines"></div><div class="lines"></div>
+<p class="sub">Write your paragraph (minimum 80 words, 10 points):</p>
+<div class="lines"></div><div class="lines"></div><div class="lines"></div><div class="lines"></div><div class="lines"></div><div class="lines"></div><div class="lines"></div><div class="lines"></div>
+
+<details><summary>Show the completed verbs and full answer: Raul Khan</summary>
+<table><tr><th>Date</th><th>Verbs (past tense)</th><th>Time markers</th></tr>
+<tr><td>1942</td><td>was born</td><td>In 1942</td></tr>
+<tr><td>1969</td><td>acted</td><td>In 1969</td></tr>
+<tr><td>1973</td><td>became</td><td>Four years later</td></tr>
+<tr><td>1973</td><td>got married; started</td><td>In the same year</td></tr>
+<tr><td>1982</td><td>worked</td><td>In 1982</td></tr>
+<tr><td>1991</td><td>made</td><td>In 1991</td></tr>
+<tr><td>2001</td><td>won</td><td>In 2001</td></tr>
+<tr><td>2002</td><td>became; lived</td><td>One year later</td></tr>
+<tr><td>2019</td><td>gave</td><td>In 2019 / Finally</td></tr></table>
+<p class="final">Raul Khan was a famous actor from India. He was born in 1942. In 1969, he acted in his first movie. Four years later, he became famous with <i>Life</i>, his first successful film, and in the same year he got married and started a family. In 1982, he worked with other famous actors, and in 1991 he made two comedy films. In 2001, he won the “Best Actor” Award in India because his work was excellent. One year later, he became very rich, but he lived a very simple life. Finally, in 2019, he gave a lot of money to poor farmers because he wanted to help them. In conclusion, Raul was a talented and kind man.</p>
+<p class="sub">(Ideas explained: the award → his excellent work; money to farmers → he wanted to help. About 125 words.)</p></details>
+</div>
+</div>
+
+<script>
+// format: question|optionA|optionB|optionC|correctIndex  (__ = blank)
+const U1=["I am really __ seeing you tomorrow.|decorating|looking forward to|marking|1",
+"Many companies came to the university __.|job fair|exhibition|free time|0",
+"He is __ every afternoon to prepare for the race.|celebrating|training|publishing|1",
+"The event will __ at 8 p.m. in the main hall.|come out|give up|take place|2",
+"A __ makes laws and works in government.|celebrity|politician|neighbour|1",
+"The festival had a big __ of fireworks at night.|break|copy|display|2",
+"What section are you in?|||-1",
+"The art __ at the museum opens tomorrow.|parade|job fair|exhibition|2",
+"The teacher gave a __ to show how the machine works.|sculpture|demonstration|tournament|1",
+"The city has a colourful __ with music and dancers.|parade|article|politician|0",
+"The project was very __ and everyone was happy with it.|colourful|national|successful|2",
+"I exercise every day to __.|take place|give up|keep fit|2",
+"The company will __ the results on its website.|celebrate|publish|parade|1",
+"This is a __ holiday, so schools are closed across the country.|colourful|national|successful|1",
+"After winning, the team __ through the streets with flags.|paraded|transferred|published|0",
+"She saw a beautiful stone __ in the park.|sculpture|tournament|demonstration|0",
+"The fireworks were amazing and very __.|spectacular|annual|political|0",
+"A famous singer is a __.|politician|celebrity|graduate|1",
+"I need a __ of your passport for the form.|copy|exhibition|sculpture|0",
+"Be careful not to __ the paper on fire.|keep|set|mark|1",
+"Families __ special days together with food and gifts.|decorate|publish|celebrate|2",
+"The city has a big music __ every summer.|festival|sculpture|copy|0",
+"The singer’s new album will __ next month.|give up|come out|mark|1",
+"Please __ the room with lights for the party.|decorate|mark|train|0",
+"The football __ starts next week with eight teams.|tournament|parade|sculpture|0",
+"I live in a quiet __ near the university.|neighbourhood|exhibition|tournament|0",
+"I like to read books in my __ after school.|demonstration|neighbourhood|free time|2",
+"I read an interesting __ about healthy food.|article|display|copy|0",
+"We __ the special day with a small party.|marked|transferred|came out|0",
+"The shop has a window __ with new clothes.|display|copy|celebration|0",
+"She wore a traditional __ during the cultural show.|exhibition|costume|neighbourhood|1"];
+const U2=["The dress is made from soft cotton __.|material|consumer|verdict|0",
+"We are on a small __ this month, so we cannot buy a new TV.|budget|profile|degree|0",
+"She wears an __ to count her steps every day.|activity tracker|scholarship|exhibition|0",
+"I want to __ the new phone in the store before I buy it.|transfer|check out|retire|1",
+"A __ buys products from a company.|relative|consumer|graduate|1",
+"The photo is very clear and __.|sharp|wealthy|technical|0",
+"Before buying a car, you should __ and compare prices.|specialize|graduate|shop around|2",
+"Please answer my message __. It is urgent.|immediately|sharply|vividly|0",
+"My phone has long __ and only needs charging once a week.|budget|motivation|battery life|2",
+"This jacket is __, so rain cannot go through it.|slim|waterproof|vivid|1",
+"That new phone looks very __ and modern.|waterproof|immediate|cool|2",
+"The new laptop is very __ and easy to carry in a small bag.|vivid|slim|wealthy|1",
+"Smartphones __ have cameras on the front and back.|immediately|vividly|typically|2",
+"The screen shows __ colours that look bright and strong.|vivid|slim|technical|0",
+"This phone is good __ because it works well and is not expensive.|battery life|value for money|turning point|1",
+"The phone’s __ are easy to use.|commissions|controls|exhibitions|1",
+"She plans to __ in engineering at university.|give up|mark|specialize|2",
+"Her main __ for studying hard is to become a doctor.|material|motivation|verdict|1",
+"He likes to __ short videos when he travels.|shoot|transfer|specialize|0",
+"After testing the product, please give your final __.|motivation|material|verdict|2",
+"I will __ the file from my phone to my laptop.|retire|graduate|transfer|2"];
+const U3=["After primary school, students usually move to __.|technical college|scholarship|secondary school|2",
+"Getting accepted to university was a big __ in his life.|commission|trip|turning point|2",
+"I am visiting a close __ who lives in Dubai.|consumer|graduate|relative|2",
+"The artist accepted a __ to paint a picture for the hotel.|project|degree|commission|2",
+"The movie is __ because it tells the true story of his life.|wealthy|biographical|technical|1",
+"Getting that acting role was her big __.|award|break|qualification|1",
+"Don’t __ just because the exam is difficult.|graduate|retire|give up|2",
+"We went on a short __ to Salalah last weekend.|trip|break|project|0",
+"The interview increased his public __.|commission|profile|degree|1",
+"He comes from a __ family with a lot of money.|vivid|experienced|wealthy|2",
+"He studies engineering at a __ near his home.|primary school|secondary school|technical college|2",
+"He earned a science __ after four years at university.|project|profile|degree|2",
+"She will __ from university next year after finishing all her exams.|graduate|retire|specialize|0",
+"She has five years of teaching __.|degree|experience|profile|1",
+"He wants a successful __ in medicine and hopes to work in a hospital.|career|trip|award|0",
+"Our group __ is due next Monday.|project|profile|scholarship|0",
+"My little sister goes to __ because she is only eight years old.|secondary school|primary school|technical college|1",
+"She received a full __ to study abroad.|award|scholarship|break|1",
+"She won an __ for being the best student in her class.|scholarship|break|award|2",
+"You need the right __ to apply for this job.|qualification|break|project|0",
+"She wants to study __ because she loves designing buildings.|architecture|biography|experience|0",
+"He arrived __ at the party, so everyone was surprised.|typically|immediately|unexpectedly|2",
+"Many __ spend a lot of time on social media.|graduates|teens|consumers|1",
+"My grandfather plans to __ when he turns 65.|graduate|retire|give up|1"];
+const G=["This book is __ than that one.|more interesting|most interesting|interesting|0",
+"We need __ rice for dinner.|some|many|a|0","English is __ than math for me.|easier|easy|easiest|0",
+"Ahmed is my best friend. __ lives near me.|He|They|It|0","My car is __ than his car.|faster|fast|fastest|0",
+"Fatima is very kind. __ helps everyone.|She|They|We|0","She __ to school by bus.|goes|go|going|0",
+"She didn’t __ her homework.|do|did|does|0","__ you visit your grandparents last week?|Did|Do|Does|0",
+"__ your sister work in Doha?|Do|Does|Is|1","My birthday is __ June.|on|in|at|1",
+"They __ English every day.|study|studies|studying|0","She __ to the mall yesterday.|go|went|goes|1",
+"__ they live near the university?|Are|Do|Does|1","A lion is __ than a cat.|stronger|strong|strongest|0",
+"She __ watch TV in the morning.|doesn’t|don’t|isn’t|0","This is the __ movie I have ever seen.|funniest|funny|funnier|0",
+"We __ play football on Sundays.|don’t|doesn’t|aren’t|0","This test is __ than the last one.|easy|easier|easiest|1",
+"There aren’t __ chairs in the room.|many|much|a|0","We __ football after school yesterday.|played|play|plays|0",
+"My sister and I like pizza. __ eat it every Friday.|They|We|You|1","They __ a movie last weekend.|watch|watched|watches|1",
+"They __ happy when they saw the gift.|was|were|are|1","She __ studying right now.|is|are|am|0",
+"I wake up __ 6 am every day.|at|in|on|0","I don’t have __ money.|many|much|a|1",
+"He __ very tired yesterday.|was|were|is|0","I __ my friend last night.|call|called|calls|1",
+"He __ sleeping at the moment.|is|are|am|0","We have class __ Monday.|on|in|at|0",
+"Winter is the __ season for me.|best|better|good|0","Today is the __ day of my life.|happy|happier|happiest|2",
+"__ your parents speak English?|Do|Does|Are|0","That was the __ exam of the year.|hard|hardest|harder|1",
+"My house is __ than yours.|big|bigger|biggest|1","We __ dinner at 8 pm last night.|have|had|having|1",
+"They __ watching TV at the moment.|is|are|am|1","The meeting starts __ 8 o’clock.|in|at|on|1",
+"There isn't __ milk in the fridge.|much|many|a|0","I __ doing my homework now.|am|is|are|0",
+"She has __ books in her bag.|much|many|a|1","My parents are teachers. __ work at a school.|We|They|She|1",
+"The cat is very small. __ is only three months old.|They|We|It|2","I __ my homework after dinner.|do|does|doing|0",
+"He __ like spicy food.|doesn’t|don’t|isn’t|0","We __ playing football right now.|are|is|am|0",
+"__ she go to school yesterday?|Did|Do|Does|0","They travel __ the summer.|in|on|at|0",
+"My father __ coffee in the morning.|drinks|drink|drinking|0"];
+const sets={u1:U1,u2:U2,u3:U3,g:G};
+const ids=[];
+for(const k in sets){const box=document.getElementById(k);
+ sets[k].forEach((row,i)=>{const p=row.split("|"),ans=+p[4],name=k+i;
+  const q=document.createElement("div");q.className="q";q.dataset.a=ans;q.dataset.k=k;q.dataset.n=name;
+  let h=`<p>${i+1}. ${p[0].replace("__","________")}</p>`;
+  if(ans<0)h+=`<input type="text" aria-label="Your answer"><span class="ans">Personal answer: write your own section.</span>`;
+  else{const L="ABC";for(let j=1;j<=3;j++)h+=`<label><input type="radio" name="${name}" value="${j-1}"> ${L[j-1]}. ${p[j]}</label>`;
+   h+=`<span class="ans"></span>`;q.dataset.t=p[ans+1];}
+  q.innerHTML=h;box.appendChild(q);});}
+function mark(show,grade){
+ const sc={};let all=0,tot=0;
+ document.querySelectorAll(".q").forEach(q=>{const a=+q.dataset.a,k=q.dataset.k;
+  if(a<0){if(show)q.classList.add("ok");return;}
+  sc[k]=sc[k]||{r:0,n:0};sc[k].n++;
+  const c=q.querySelector("input:checked"),ans=q.querySelector(".ans");
+  const right=c&&+c.value===a;if(right){sc[k].r++;}
+  if(show){q.classList.remove("ok","no");
+   if(grade){q.classList.add(right?"ok":"no");ans.textContent=right?"✓ Correct: "+q.dataset.t:"✗ Correct answer: "+q.dataset.t;}
+   else{q.classList.add("ok");ans.textContent="✓ "+q.dataset.t;}}});
+ return sc;}
+function grade(){const sc=mark(true,true);let r=0,n=0;
+ for(const k in sc){const e=document.getElementById("s-"+k);e.style.display="block";e.textContent="Score: "+sc[k].r+" / "+sc[k].n;r+=sc[k].r;n+=sc[k].n;}
+ const a=document.getElementById("s-all");a.style.display="block";a.textContent="Total score: "+r+" / "+n+" ("+Math.round(100*r/n)+"%)";
+ document.querySelectorAll("details").forEach(d=>d.open=true);
+ document.getElementById("s-u1").scrollIntoView({behavior:"smooth",block:"center"});}
+function showKey(){mark(true,false);document.querySelectorAll("details").forEach(d=>d.open=true);}
+</script></body></html>
